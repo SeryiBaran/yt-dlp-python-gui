@@ -47,23 +47,25 @@ def fix_font():
     dpg.add_font_range(0x0391, 0x03C9)  #Greek character range
     dpg.add_font_range(0x2070, 0x209F)  #Range of upper and lower numerical indices
 
-    biglet = remap_big_let  # Initial number for the reassigned Cyrillic alphabet
-    for i1 in range(big_let_start, big_let_end + 1):  # Cyclic switching of large letters
-        dpg.add_char_remap(i1, biglet)  # Reassigning the big letter
-        dpg.add_char_remap(i1 + alph_len, biglet + alph_len)  # Reassign a small letter
-        biglet += 1  # choose the next letter
+    # Fixing keyboard input on Windows
+    if sys.platform == 'win32':
+        biglet = remap_big_let  # Initial number for the reassigned Cyrillic alphabet
+        for i1 in range(big_let_start, big_let_end + 1):  # Cyclic switching of large letters
+            dpg.add_char_remap(i1, biglet)  # Reassigning the big letter
+            dpg.add_char_remap(i1 + alph_len, biglet + alph_len)  # Reassign a small letter
+            biglet += 1  # choose the next letter
 
-    #The letters "Ёё" must be added separately, since they are located elsewhere in the table
-    dpg.add_char_remap(0x00A8, 0x0401)
-    dpg.add_char_remap(0x00B8, 0x0451)
+        #The letters "Ёё" must be added separately, since they are located elsewhere in the table
+        dpg.add_char_remap(0x00A8, 0x0401)
+        dpg.add_char_remap(0x00B8, 0x0451)
 
 with dpg.font_registry():
     with dpg.font(font_path, size=24) as font:
         fix_font()
+        # Set font
+        dpg.bind_font(font)
     with dpg.font(font_path, size=42) as fontbig:
         fix_font()
-
-    dpg.bind_font(font)
 
 def decode_string(instr : str):
     if sys.platform == 'win32':
