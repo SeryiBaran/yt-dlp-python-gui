@@ -1,4 +1,4 @@
-# Yt-dlp python GUI
+# Yt-dlp python GUI 1.0.0
 
 GUI для yt-dlp на Python + DearPyGUI.
 
