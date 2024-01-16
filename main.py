@@ -71,8 +71,10 @@ def yt_dlp_hook(d):
 class App(QMainWindow):
     def __init__(self):
         super(App, self).__init__()
-        self.ui = Ui_MainWindow()
+        self.window = Ui_MainWindow()
+        self.ui = self.window
         self.ui.setupUi(self)
+        self.setWindowState(QtCore.Qt.WindowMaximized)
 
         self.ui.plainTextEdit_urls.textChanged.connect(self.handle_plainTextEdit_urls)
         self.ui.button_download_directory.clicked.connect(

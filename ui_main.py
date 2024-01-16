@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFrame,
-    QHBoxLayout, QLabel, QLayout, QMainWindow,
-    QPlainTextEdit, QPushButton, QSizePolicy, QSpacerItem,
+    QHBoxLayout, QLabel, QMainWindow, QPlainTextEdit,
+    QPushButton, QScrollArea, QSizePolicy, QSpacerItem,
     QVBoxLayout, QWidget)
 import resources_rc
 
@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setEnabled(True)
-        MainWindow.resize(800, 819)
+        MainWindow.resize(721, 820)
         font = QFont()
         font.setPointSize(16)
         MainWindow.setFont(font)
@@ -37,35 +37,42 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.horizontalLayout_2 = QHBoxLayout(self.centralwidget)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.verticalLayout = QVBoxLayout()
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setSizeConstraint(QLayout.SetDefaultConstraint)
-        self.label = QLabel(self.centralwidget)
-        self.label.setObjectName(u"label")
+        self.scrollArea = QScrollArea(self.centralwidget)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setMaximumSize(QSize(700, 16777215))
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 698, 800))
+        self.verticalLayout_3 = QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.label_13 = QLabel(self.scrollAreaWidgetContents)
+        self.label_13.setObjectName(u"label_13")
         font1 = QFont()
         font1.setPointSize(32)
-        self.label.setFont(font1)
+        self.label_13.setFont(font1)
 
-        self.verticalLayout.addWidget(self.label)
+        self.verticalLayout_3.addWidget(self.label_13)
 
-        self.label_2 = QLabel(self.centralwidget)
-        self.label_2.setObjectName(u"label_2")
+        self.label_16 = QLabel(self.scrollAreaWidgetContents)
+        self.label_16.setObjectName(u"label_16")
 
-        self.verticalLayout.addWidget(self.label_2)
+        self.verticalLayout_3.addWidget(self.label_16)
 
-        self.line = QFrame(self.centralwidget)
-        self.line.setObjectName(u"line")
-        self.line.setFrameShape(QFrame.HLine)
-        self.line.setFrameShadow(QFrame.Sunken)
+        self.line_18 = QFrame(self.scrollAreaWidgetContents)
+        self.line_18.setObjectName(u"line_18")
+        self.line_18.setFrameShape(QFrame.HLine)
+        self.line_18.setFrameShadow(QFrame.Sunken)
 
-        self.verticalLayout.addWidget(self.line)
+        self.verticalLayout_3.addWidget(self.line_18)
 
-        self.label_3 = QLabel(self.centralwidget)
-        self.label_3.setObjectName(u"label_3")
+        self.label_15 = QLabel(self.scrollAreaWidgetContents)
+        self.label_15.setObjectName(u"label_15")
+        self.label_15.setWordWrap(True)
 
-        self.verticalLayout.addWidget(self.label_3)
+        self.verticalLayout_3.addWidget(self.label_15)
 
-        self.plainTextEdit_urls = QPlainTextEdit(self.centralwidget)
+        self.plainTextEdit_urls = QPlainTextEdit(self.scrollAreaWidgetContents)
         self.plainTextEdit_urls.setObjectName(u"plainTextEdit_urls")
         sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -74,47 +81,47 @@ class Ui_MainWindow(object):
         self.plainTextEdit_urls.setSizePolicy(sizePolicy)
         self.plainTextEdit_urls.setMaximumSize(QSize(16777215, 80))
 
-        self.verticalLayout.addWidget(self.plainTextEdit_urls)
+        self.verticalLayout_3.addWidget(self.plainTextEdit_urls)
 
-        self.line_2 = QFrame(self.centralwidget)
-        self.line_2.setObjectName(u"line_2")
-        self.line_2.setFrameShape(QFrame.HLine)
-        self.line_2.setFrameShadow(QFrame.Sunken)
+        self.line_16 = QFrame(self.scrollAreaWidgetContents)
+        self.line_16.setObjectName(u"line_16")
+        self.line_16.setFrameShape(QFrame.HLine)
+        self.line_16.setFrameShadow(QFrame.Sunken)
 
-        self.verticalLayout.addWidget(self.line_2)
+        self.verticalLayout_3.addWidget(self.line_16)
 
-        self.label_4 = QLabel(self.centralwidget)
-        self.label_4.setObjectName(u"label_4")
+        self.label_18 = QLabel(self.scrollAreaWidgetContents)
+        self.label_18.setObjectName(u"label_18")
 
-        self.verticalLayout.addWidget(self.label_4)
+        self.verticalLayout_3.addWidget(self.label_18)
 
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.button_download_directory = QPushButton(self.centralwidget)
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.button_download_directory = QPushButton(self.scrollAreaWidgetContents)
         self.button_download_directory.setObjectName(u"button_download_directory")
 
-        self.horizontalLayout.addWidget(self.button_download_directory)
+        self.horizontalLayout_3.addWidget(self.button_download_directory)
 
-        self.label_download_directory = QLabel(self.centralwidget)
+        self.label_download_directory = QLabel(self.scrollAreaWidgetContents)
         self.label_download_directory.setObjectName(u"label_download_directory")
 
-        self.horizontalLayout.addWidget(self.label_download_directory)
+        self.horizontalLayout_3.addWidget(self.label_download_directory)
 
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_8 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout.addItem(self.horizontalSpacer)
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_8)
 
 
-        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.verticalLayout_3.addLayout(self.horizontalLayout_3)
 
-        self.line_3 = QFrame(self.centralwidget)
-        self.line_3.setObjectName(u"line_3")
-        self.line_3.setFrameShape(QFrame.HLine)
-        self.line_3.setFrameShadow(QFrame.Sunken)
+        self.line_14 = QFrame(self.scrollAreaWidgetContents)
+        self.line_14.setObjectName(u"line_14")
+        self.line_14.setFrameShape(QFrame.HLine)
+        self.line_14.setFrameShadow(QFrame.Sunken)
 
-        self.verticalLayout.addWidget(self.line_3)
+        self.verticalLayout_3.addWidget(self.line_14)
 
-        self.check_download_playlist = QCheckBox(self.centralwidget)
+        self.check_download_playlist = QCheckBox(self.scrollAreaWidgetContents)
         self.check_download_playlist.setObjectName(u"check_download_playlist")
         self.check_download_playlist.setStyleSheet(u"QCheckBox::indicator\n"
 "{\n"
@@ -131,68 +138,70 @@ class Ui_MainWindow(object):
 "}\n"
 "")
 
-        self.verticalLayout.addWidget(self.check_download_playlist)
+        self.verticalLayout_3.addWidget(self.check_download_playlist)
 
-        self.line_4 = QFrame(self.centralwidget)
-        self.line_4.setObjectName(u"line_4")
-        self.line_4.setFrameShape(QFrame.HLine)
-        self.line_4.setFrameShadow(QFrame.Sunken)
+        self.line_13 = QFrame(self.scrollAreaWidgetContents)
+        self.line_13.setObjectName(u"line_13")
+        self.line_13.setFrameShape(QFrame.HLine)
+        self.line_13.setFrameShadow(QFrame.Sunken)
 
-        self.verticalLayout.addWidget(self.line_4)
+        self.verticalLayout_3.addWidget(self.line_13)
 
-        self.label_6 = QLabel(self.centralwidget)
-        self.label_6.setObjectName(u"label_6")
+        self.label_14 = QLabel(self.scrollAreaWidgetContents)
+        self.label_14.setObjectName(u"label_14")
 
-        self.verticalLayout.addWidget(self.label_6)
+        self.verticalLayout_3.addWidget(self.label_14)
 
-        self.horizontalLayout_3 = QHBoxLayout()
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.comboBox_video_size = QComboBox(self.centralwidget)
+        self.horizontalLayout_1 = QHBoxLayout()
+        self.horizontalLayout_1.setObjectName(u"horizontalLayout_1")
+        self.comboBox_video_size = QComboBox(self.scrollAreaWidgetContents)
         self.comboBox_video_size.setObjectName(u"comboBox_video_size")
         self.comboBox_video_size.setMinimumSize(QSize(100, 0))
 
-        self.horizontalLayout_3.addWidget(self.comboBox_video_size)
+        self.horizontalLayout_1.addWidget(self.comboBox_video_size)
 
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_1 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
+        self.horizontalLayout_1.addItem(self.horizontalSpacer_1)
 
 
-        self.verticalLayout.addLayout(self.horizontalLayout_3)
+        self.verticalLayout_3.addLayout(self.horizontalLayout_1)
 
-        self.line_6 = QFrame(self.centralwidget)
-        self.line_6.setObjectName(u"line_6")
-        self.line_6.setFrameShape(QFrame.HLine)
-        self.line_6.setFrameShadow(QFrame.Sunken)
+        self.line_15 = QFrame(self.scrollAreaWidgetContents)
+        self.line_15.setObjectName(u"line_15")
+        self.line_15.setFrameShape(QFrame.HLine)
+        self.line_15.setFrameShadow(QFrame.Sunken)
 
-        self.verticalLayout.addWidget(self.line_6)
+        self.verticalLayout_3.addWidget(self.line_15)
 
-        self.pushButton_download = QPushButton(self.centralwidget)
+        self.pushButton_download = QPushButton(self.scrollAreaWidgetContents)
         self.pushButton_download.setObjectName(u"pushButton_download")
 
-        self.verticalLayout.addWidget(self.pushButton_download)
+        self.verticalLayout_3.addWidget(self.pushButton_download)
 
-        self.line_5 = QFrame(self.centralwidget)
-        self.line_5.setObjectName(u"line_5")
-        self.line_5.setFrameShape(QFrame.HLine)
-        self.line_5.setFrameShadow(QFrame.Sunken)
+        self.line_17 = QFrame(self.scrollAreaWidgetContents)
+        self.line_17.setObjectName(u"line_17")
+        self.line_17.setFrameShape(QFrame.HLine)
+        self.line_17.setFrameShadow(QFrame.Sunken)
 
-        self.verticalLayout.addWidget(self.line_5)
+        self.verticalLayout_3.addWidget(self.line_17)
 
-        self.label_5 = QLabel(self.centralwidget)
-        self.label_5.setObjectName(u"label_5")
+        self.label_17 = QLabel(self.scrollAreaWidgetContents)
+        self.label_17.setObjectName(u"label_17")
 
-        self.verticalLayout.addWidget(self.label_5)
+        self.verticalLayout_3.addWidget(self.label_17)
 
-        self.plainTextEdit_logs = QPlainTextEdit(self.centralwidget)
+        self.plainTextEdit_logs = QPlainTextEdit(self.scrollAreaWidgetContents)
         self.plainTextEdit_logs.setObjectName(u"plainTextEdit_logs")
+        self.plainTextEdit_logs.setMinimumSize(QSize(0, 180))
         self.plainTextEdit_logs.setLineWrapMode(QPlainTextEdit.NoWrap)
         self.plainTextEdit_logs.setReadOnly(True)
 
-        self.verticalLayout.addWidget(self.plainTextEdit_logs)
+        self.verticalLayout_3.addWidget(self.plainTextEdit_logs)
 
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
-        self.horizontalLayout_2.addLayout(self.verticalLayout)
+        self.horizontalLayout_2.addWidget(self.scrollArea)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -203,15 +212,15 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0430\u0447\u0438\u0432\u0430\u043b\u043a\u0430 \u0441 YouTube (\u0438\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441 \u0434\u043b\u044f yt-dlp)", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0430\u0447\u0438\u0432\u0430\u043b\u043a\u0430 \u0441 YouTube", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>(\u0418\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441 \u0434\u043b\u044f yt-dlp)</p></body></html>", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>\u0423\u043a\u0430\u0436\u0438\u0442\u0435 \u0430\u0434\u0440\u0435\u0441 \u0432\u0438\u0434\u0435\u043e/\u043f\u043b\u0435\u0439\u043b\u0438\u0441\u0442\u0430: (\u043c\u043e\u0436\u043d\u043e \u0432\u0441\u0442\u0430\u0432\u043b\u044f\u0442\u044c \u043c\u043d\u043e\u0433\u043e \u0441\u0441\u044b\u043b\u043e\u043a,</p><p>\u043a\u0430\u0436\u0434\u0443\u044e \u043d\u0430 \u043d\u043e\u0432\u043e\u0439 \u0441\u0442\u0440\u043e\u043a\u0435)</p></body></html>", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u043f\u0430\u043f\u043a\u0443 \u0434\u043b\u044f \u0437\u0430\u0433\u0440\u0443\u0437\u043a\u0438:</p></body></html>", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0430\u0447\u0438\u0432\u0430\u043b\u043a\u0430 \u0441 YouTube", None))
+        self.label_16.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>(\u0418\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441 \u0434\u043b\u044f yt-dlp)</p></body></html>", None))
+        self.label_15.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>\u0423\u043a\u0430\u0436\u0438\u0442\u0435 \u0430\u0434\u0440\u0435\u0441 \u0432\u0438\u0434\u0435\u043e/\u043f\u043b\u0435\u0439\u043b\u0438\u0441\u0442\u0430 (\u043c\u043e\u0436\u043d\u043e \u0432\u0441\u0442\u0430\u0432\u043b\u044f\u0442\u044c \u043c\u043d\u043e\u0433\u043e \u0441\u0441\u044b\u043b\u043e\u043a, \u043a\u0430\u0436\u0434\u0443\u044e \u043d\u0430 \u043d\u043e\u0432\u043e\u0439 \u0441\u0442\u0440\u043e\u043a\u0435):</p></body></html>", None))
+        self.label_18.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u043f\u0430\u043f\u043a\u0443 \u0434\u043b\u044f \u0437\u0430\u0433\u0440\u0443\u0437\u043a\u0438:</p></body></html>", None))
         self.button_download_directory.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0431\u0440\u0430\u0442\u044c \u043f\u0430\u043f\u043a\u0443", None))
         self.label_download_directory.setText(QCoreApplication.translate("MainWindow", u"C:/Users/ivan/Downloads", None))
         self.check_download_playlist.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0430\u0447\u0430\u0442\u044c \u043f\u043b\u0435\u0439\u043b\u0438\u0441\u0442", None))
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u043a\u0430\u0447\u0435\u0441\u0442\u0432\u043e \u0432\u0438\u0434\u0435\u043e:", None))
+        self.label_14.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u043a\u0430\u0447\u0435\u0441\u0442\u0432\u043e \u0432\u0438\u0434\u0435\u043e:", None))
         self.pushButton_download.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0430\u0447\u0430\u0442\u044c", None))
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0432\u043e\u0434:", None))
+        self.label_17.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0432\u043e\u0434:", None))
     # retranslateUi
 
