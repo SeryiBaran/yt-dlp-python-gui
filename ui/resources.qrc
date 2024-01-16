@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icon.ico</file>
+    <file>CarbonCheckbox.svg</file>
+    <file>CarbonCheckboxChecked.svg</file>
+  </qresource>
+</RCC>
