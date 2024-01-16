@@ -155,6 +155,11 @@
         </item>
         <item>
          <widget class="QCheckBox" name="check_download_playlist">
+          <property name="font">
+           <font>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">QCheckBox::indicator
 {

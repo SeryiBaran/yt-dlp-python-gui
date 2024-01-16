@@ -123,6 +123,7 @@ class Ui_MainWindow(object):
 
         self.check_download_playlist = QCheckBox(self.scrollAreaWidgetContents)
         self.check_download_playlist.setObjectName(u"check_download_playlist")
+        self.check_download_playlist.setFont(font)
         self.check_download_playlist.setStyleSheet(u"QCheckBox::indicator\n"
 "{\n"
 "	width: 50px;\n"
