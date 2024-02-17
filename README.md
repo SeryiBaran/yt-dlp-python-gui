@@ -11,3 +11,7 @@ pip install -r requirements.txt
 
 pyinstaller --clean -n "yt-dlp-python-gui" -w -y -F -i="ui\icon.ico" --add-data="ui\icon.ico:ui" .\main.py
 ```
+
+## Linux
+
+Нужно поправить алгоритм поиска папки загрузки. Остальное всё кроссплатформенное.
