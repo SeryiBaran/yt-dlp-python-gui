@@ -1,6 +1,6 @@
 # Yt-dlp python GUI 1.0.1
 
-GUI для yt-dlp на Python + DearPyGUI.
+GUI для yt-dlp на Python + PySide6.
 
 ## Сборка
 
