@@ -21,7 +21,7 @@ from ui_main import Ui_MainWindow
 urls = []
 download_directory = shell.SHGetKnownFolderPath(shellcon.FOLDERID_Downloads)
 download_playlist = False
-video_sizes = ("360", "480", "720")
+video_sizes = ("360", "480", "720", "1080")
 video_size = "360"
 
 
@@ -145,7 +145,17 @@ class App(QMainWindow):
             ydl_opts = {
                 "logger": logger,
                 "progress_hooks": [yt_dlp_hook],
-                "compat_opts": "filename",
+                # "compat_opts": {"filename-sanitization"},
+                'postprocessors': [{'actions': [(yt_dlp.postprocessor.metadataparser.MetadataParserPP.replacer,
+                                  'title',
+                                  # https://en.wikipedia.org/wiki/NTFS restrictions /\:*"?<>| plus `'
+                                  '[\/\\\:\*\"\?\<\>\|\`\']',
+                                  '_')],
+                     'key': 'MetadataParser',
+                     'when': 'pre_process'},
+                    {'key': 'FFmpegConcat',
+                     'only_multi_video': True,
+                     'when': 'playlist'}],
                 "format_sort": [f"res:{video_size}"],
                 "noplaylist": not download_playlist,
                 "paths": {"home": download_directory},
