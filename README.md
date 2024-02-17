@@ -1,5 +1,7 @@
 # Yt-dlp python GUI 1.0.1
 
+![screenshot](readme_images/screnshot.png)
+
 GUI для yt-dlp на Python + PySide6.
 
 ## Сборка
