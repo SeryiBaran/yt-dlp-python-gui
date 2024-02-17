@@ -18,6 +18,8 @@ from PySide6.QtWidgets import (
 
 from ui_main import Ui_MainWindow
 
+VERSION_LABEL_VALUE = "Версия 1.0.2"
+
 urls = []
 download_directory = shell.SHGetKnownFolderPath(shellcon.FOLDERID_Downloads)
 download_playlist = False
@@ -75,6 +77,8 @@ class App(QMainWindow):
         self.ui = self.window
         self.ui.setupUi(self)
         self.setWindowState(QtCore.Qt.WindowMaximized)
+
+        self.ui.version_label.setText(VERSION_LABEL_VALUE)
 
         self.ui.plainTextEdit_urls.textChanged.connect(self.handle_plainTextEdit_urls)
         self.ui.button_download_directory.clicked.connect(

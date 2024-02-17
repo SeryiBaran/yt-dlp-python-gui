@@ -26,9 +26,9 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setEnabled(True)
-        MainWindow.resize(721, 820)
+        MainWindow.resize(660, 790)
         font = QFont()
-        font.setPointSize(16)
+        font.setPointSize(14)
         MainWindow.setFont(font)
         icon = QIcon()
         icon.addFile(u":/icons/icon.ico", QSize(), QIcon.Normal, QIcon.On)
@@ -39,11 +39,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.scrollArea = QScrollArea(self.centralwidget)
         self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setMaximumSize(QSize(700, 16777215))
+        self.scrollArea.setMaximumSize(QSize(640, 16777215))
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 698, 800))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 638, 770))
         self.verticalLayout_3 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.label_13 = QLabel(self.scrollAreaWidgetContents)
@@ -148,25 +148,25 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.line_13)
 
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.label_14 = QLabel(self.scrollAreaWidgetContents)
         self.label_14.setObjectName(u"label_14")
 
-        self.verticalLayout_3.addWidget(self.label_14)
+        self.horizontalLayout.addWidget(self.label_14)
 
-        self.horizontalLayout_1 = QHBoxLayout()
-        self.horizontalLayout_1.setObjectName(u"horizontalLayout_1")
         self.comboBox_video_size = QComboBox(self.scrollAreaWidgetContents)
         self.comboBox_video_size.setObjectName(u"comboBox_video_size")
         self.comboBox_video_size.setMinimumSize(QSize(100, 0))
 
-        self.horizontalLayout_1.addWidget(self.comboBox_video_size)
+        self.horizontalLayout.addWidget(self.comboBox_video_size)
 
         self.horizontalSpacer_1 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_1.addItem(self.horizontalSpacer_1)
+        self.horizontalLayout.addItem(self.horizontalSpacer_1)
 
 
-        self.verticalLayout_3.addLayout(self.horizontalLayout_1)
+        self.verticalLayout_3.addLayout(self.horizontalLayout)
 
         self.line_15 = QFrame(self.scrollAreaWidgetContents)
         self.line_15.setObjectName(u"line_15")
@@ -200,6 +200,14 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.plainTextEdit_logs)
 
+        self.version_label = QLabel(self.scrollAreaWidgetContents)
+        self.version_label.setObjectName(u"version_label")
+        font2 = QFont()
+        font2.setPointSize(9)
+        self.version_label.setFont(font2)
+
+        self.verticalLayout_3.addWidget(self.version_label)
+
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
         self.horizontalLayout_2.addWidget(self.scrollArea)
@@ -223,5 +231,6 @@ class Ui_MainWindow(object):
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u043a\u0430\u0447\u0435\u0441\u0442\u0432\u043e \u0432\u0438\u0434\u0435\u043e:", None))
         self.pushButton_download.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0430\u0447\u0430\u0442\u044c", None))
         self.label_17.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0432\u043e\u0434:", None))
+        self.version_label.setText(QCoreApplication.translate("MainWindow", u"VERSION", None))
     # retranslateUi
 
