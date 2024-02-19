@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>640</width>
-    <height>790</height>
+    <height>780</height>
    </rect>
   </property>
   <property name="font">
@@ -62,8 +62,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>640</width>
-         <height>790</height>
+         <width>623</width>
+         <height>783</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -71,7 +71,7 @@
          <widget class="QLabel" name="label_13">
           <property name="font">
            <font>
-            <pointsize>32</pointsize>
+            <pointsize>26</pointsize>
            </font>
           </property>
           <property name="text">
@@ -256,6 +256,21 @@ QCheckBox::indicator:unchecked
            </spacer>
           </item>
          </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Внимание: для скачивания видео в 1080 рекомендуется установить FFmpeg. Например, с помощью scoop. Иначе вместо 1080 может качаться 720.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="Line" name="line_15">

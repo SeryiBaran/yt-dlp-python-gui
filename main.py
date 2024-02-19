@@ -227,9 +227,9 @@ class App(QMainWindow):
                         "when": "playlist",
                     },
                 ],
-                "format_sort": [f"res:{video_size}"],
+                "format_sort": [f"res:{video_size}", f"ext:mp4:m4a"],
                 "noplaylist": not download_playlist,
-                "paths": {"home": download_directory},
+                "paths": {"home": download_directory}
             }
             self.thread = YoutubeDownload(urls, ydl_opts)
             self.thread.start()
