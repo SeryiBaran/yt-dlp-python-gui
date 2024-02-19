@@ -68,6 +68,7 @@ class Ui_AboutWindow(object):
 
         self.label_4 = QLabel(self.widget)
         self.label_4.setObjectName(u"label_4")
+        self.label_4.setOpenExternalLinks(True)
 
         self.verticalLayout_2.addWidget(self.label_4)
 

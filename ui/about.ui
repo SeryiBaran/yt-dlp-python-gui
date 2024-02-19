@@ -88,6 +88,9 @@
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Разработчик - &lt;a href=&quot;https://seryibaran.github.io&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#4c4a48;&quot;&gt;SeryiBaran&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
+        <property name="openExternalLinks">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
