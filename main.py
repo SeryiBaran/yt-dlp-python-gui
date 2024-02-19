@@ -10,8 +10,7 @@ from PySide6.QtWidgets import (
     QApplication,
     QMainWindow,
     QFileDialog,
-    QDialog,
-    QDialogButtonBox
+    QDialog
 )
 
 from ui_main import Ui_MainWindow
@@ -21,8 +20,7 @@ VERSION = "1.0.3"
 YT_DLP_VERSION = "2023.12.30"
 
 VERSION_LABEL_VALUE = f"""Версия этой программы - {VERSION}
-Версия yt-dlp - {YT_DLP_VERSION}
-"""
+Версия yt-dlp - {YT_DLP_VERSION}"""
 
 ini_config = configparser.ConfigParser()
 try:
