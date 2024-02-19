@@ -10,35 +10,50 @@ from PySide6.QtWidgets import (
     QApplication,
     QMainWindow,
     QFileDialog,
+    QDialog,
+    QDialogButtonBox
 )
 
 from ui_main import Ui_MainWindow
+from ui_about import Ui_AboutWindow
 
-VERSION_LABEL_VALUE = "Версия 1.0.2"
+VERSION = "1.0.2"
+YT_DLP_VERSION = "2023.12.30"
+
+VERSION_LABEL_VALUE = f"""Версия этой программы - {VERSION}
+Версия yt-dlp - {YT_DLP_VERSION}
+"""
 
 ini_config = configparser.ConfigParser()
 try:
-    ini_config.read('yt-dlp-python-gui.ini')
+    ini_config.read("yt-dlp-python-gui.ini")
 except:
-    print("пашол нахуй")
+    print("INFO: cannot read yt-dlp-python-gui.ini")
 
-urls = []
 
 def get_parameter(parameter_name):
-    if (ini_config.has_section("settings") and ini_config.has_option("settings", parameter_name)):
+    if ini_config.has_section("settings") and ini_config.has_option(
+        "settings", parameter_name
+    ):
         return ini_config.get("settings", parameter_name)
     return False
+
 
 def set_parameter(parameter_name, value):
     ini_config.set("settings", parameter_name, value)
 
-download_directory = get_parameter("download_directory") or shell.SHGetKnownFolderPath(shellcon.FOLDERID_Downloads)
+
+urls = []
+download_directory = get_parameter("download_directory") or shell.SHGetKnownFolderPath(
+    shellcon.FOLDERID_Downloads
+)
 download_playlist = get_parameter("download_playlist") == "True" or False
 video_sizes = ("360", "480", "720", "1080")
 video_size = get_parameter("video_size") or "360"
 
+
 def write_config():
-    if (not ini_config.has_section("settings")):
+    if not ini_config.has_section("settings"):
         ini_config.add_section("settings")
 
     set_parameter("download_directory", download_directory)
@@ -48,7 +63,9 @@ def write_config():
     with open("yt-dlp-python-gui.ini", "w") as configfile:
         ini_config.write(configfile)
 
+
 write_config()
+
 
 class MyLogger(QtCore.QObject):
     messageSignal = QtCore.Signal(str)
@@ -84,6 +101,7 @@ class YoutubeDownload(QtCore.QThread):
         self.messageSignal.emit("STARTED")
         with yt_dlp.YoutubeDL(self.ydl_opts) as ydl:
             ydl.download(self.urls)
+
             self.messageSignal.emit("ENDED")
 
 
@@ -93,6 +111,18 @@ def yt_dlp_hook(d):
         download_finished = True
 
 
+class AboutWindow(QDialog):
+    def __init__(self):
+        super(AboutWindow, self).__init__()
+        self.window = Ui_AboutWindow()
+        self.ui = self.window
+        self.ui.setupUi(self)
+
+        self.ui.versionsLabel.setText(VERSION_LABEL_VALUE)
+
+        self.ui.buttonBox.accepted.connect(self.close)
+
+
 class App(QMainWindow):
     def __init__(self):
         super(App, self).__init__()
@@ -100,8 +130,6 @@ class App(QMainWindow):
         self.ui = self.window
         self.ui.setupUi(self)
         self.setWindowState(QtCore.Qt.WindowMaximized)
-
-        self.ui.version_label.setText(VERSION_LABEL_VALUE)
 
         self.ui.plainTextEdit_urls.textChanged.connect(self.handle_plainTextEdit_urls)
         self.ui.button_download_directory.clicked.connect(
@@ -120,6 +148,8 @@ class App(QMainWindow):
             self.handle_comboBox_video_size
         )
         self.ui.comboBox_video_size.setCurrentText(video_size)
+
+        self.ui.aboutButton.clicked.connect(self.open_about_window)
 
     def log(self, message):
         self.ui.plainTextEdit_logs.appendPlainText(str(message))
@@ -207,6 +237,9 @@ class App(QMainWindow):
             self.thread.start()
             self.thread.messageSignal.connect(self.handle_download_state_changed)
 
+    def open_about_window(self):
+        self.about_window = AboutWindow()
+        self.about_window.show()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
