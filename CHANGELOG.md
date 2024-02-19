@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog],
 and this project adheres to [Semantic Versioning] and [Conventional Commits].
 
+## [1.0.3] - 2024-02-19
+
+### Added
+
+- settings saving to `yt-dlp-python-gui.ini` in folder where exe located
+- window "About program"
+
 ## [1.0.2] - 2024-02-17
 
 ### Added
@@ -13,7 +20,7 @@ and this project adheres to [Semantic Versioning] and [Conventional Commits].
 
 ### Changed
 
-- ui font size slightly reduced
+- ui font size slightly reduced (from 16 to 14)
 
 ## [1.0.1] - 2024-02-17
 
