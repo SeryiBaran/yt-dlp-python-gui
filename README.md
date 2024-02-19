@@ -1,4 +1,4 @@
-# Yt-dlp python GUI 1.0.2
+# Yt-dlp python GUI
 
 ![screenshot](readme_images/screenshot.png)
 
