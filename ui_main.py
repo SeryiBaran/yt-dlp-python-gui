@@ -61,9 +61,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.aboutButton = QPushButton(self.scrollAreaWidgetContents)
         self.aboutButton.setObjectName(u"aboutButton")
-        font2 = QFont()
-        font2.setPointSize(9)
-        self.aboutButton.setFont(font2)
 
         self.horizontalLayout_4.addWidget(self.aboutButton)
 

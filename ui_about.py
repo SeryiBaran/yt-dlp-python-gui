@@ -24,7 +24,7 @@ class Ui_AboutWindow(object):
     def setupUi(self, AboutWindow):
         if not AboutWindow.objectName():
             AboutWindow.setObjectName(u"AboutWindow")
-        AboutWindow.resize(400, 190)
+        AboutWindow.resize(400, 210)
         icon = QIcon()
         icon.addFile(u":/icons/icon.ico", QSize(), QIcon.Normal, QIcon.On)
         AboutWindow.setWindowIcon(icon)
@@ -66,6 +66,11 @@ class Ui_AboutWindow(object):
 
         self.verticalLayout_2.addWidget(self.versionsLabel)
 
+        self.label_4 = QLabel(self.widget)
+        self.label_4.setObjectName(u"label_4")
+
+        self.verticalLayout_2.addWidget(self.label_4)
+
         self.verticalSpacer = QSpacerItem(20, 5, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.verticalLayout_2.addItem(self.verticalSpacer)
@@ -93,5 +98,6 @@ class Ui_AboutWindow(object):
         self.label_2.setText(QCoreApplication.translate("AboutWindow", u"<html><head/><body><p>\u0422\u0443\u0442 \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u043e\u043f\u0438\u0441\u0430\u043d\u0438\u0435, \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e\u0431 \u0430\u0432\u0442\u043e\u0440\u0435, \u0435\u0433\u043e \u0431\u0438\u043e\u0433\u0440\u0430\u0444\u0438\u044f, \u0440\u0435\u043a\u043b\u0430\u043c\u0430 \u043e\u043a\u043e\u043d... \u041c\u043d\u0435 \u043b\u0435\u043d\u044c :3</p></body></html>", None))
         self.versionsLabel.setText(QCoreApplication.translate("AboutWindow", u"\u0412\u0435\u0440\u0441\u0438\u044f \u044d\u0442\u043e\u0439 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u044b - {VERSION}\n"
 "\u0412\u0435\u0440\u0441\u0438\u044f yt-dlp - {YT_DLP_VERSION}", None))
+        self.label_4.setText(QCoreApplication.translate("AboutWindow", u"<html><head/><body><p>\u0420\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0447\u0438\u043a - <a href=\"https://seryibaran.github.io\"><span style=\" text-decoration: underline; color:#4c4a48;\">SeryiBaran</span></a></p></body></html>", None))
     # retranslateUi
 

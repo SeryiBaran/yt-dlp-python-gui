@@ -17,7 +17,7 @@ from PySide6.QtWidgets import (
 from ui_main import Ui_MainWindow
 from ui_about import Ui_AboutWindow
 
-VERSION = "1.0.2"
+VERSION = "1.0.3"
 YT_DLP_VERSION = "2023.12.30"
 
 VERSION_LABEL_VALUE = f"""Версия этой программы - {VERSION}

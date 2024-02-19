@@ -83,11 +83,6 @@
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item>
            <widget class="QPushButton" name="aboutButton">
-            <property name="font">
-             <font>
-              <pointsize>9</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Информация о программе</string>
             </property>

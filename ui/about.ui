@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>190</height>
+    <height>210</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -80,6 +80,13 @@
         <property name="text">
          <string>Версия этой программы - {VERSION}
 Версия yt-dlp - {YT_DLP_VERSION}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Разработчик - &lt;a href=&quot;https://seryibaran.github.io&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#4c4a48;&quot;&gt;SeryiBaran&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </item>
