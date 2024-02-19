@@ -2,30 +2,53 @@ import sys
 from pathlib import Path
 from win32com.shell import shell, shellcon
 import yt_dlp
+import configparser
 
 from PySide6 import QtCore
 
 from PySide6.QtWidgets import (
     QApplication,
     QMainWindow,
-    QWidget,
     QFileDialog,
-    QGridLayout,
-    QPushButton,
-    QLabel,
-    QListWidget,
 )
 
 from ui_main import Ui_MainWindow
 
 VERSION_LABEL_VALUE = "Версия 1.0.2"
 
-urls = []
-download_directory = shell.SHGetKnownFolderPath(shellcon.FOLDERID_Downloads)
-download_playlist = False
-video_sizes = ("360", "480", "720", "1080")
-video_size = "360"
+ini_config = configparser.ConfigParser()
+try:
+    ini_config.read('yt-dlp-python-gui.ini')
+except:
+    print("пашол нахуй")
 
+urls = []
+
+def get_parameter(parameter_name):
+    if (ini_config.has_section("settings") and ini_config.has_option("settings", parameter_name)):
+        return ini_config.get("settings", parameter_name)
+    return False
+
+def set_parameter(parameter_name, value):
+    ini_config.set("settings", parameter_name, value)
+
+download_directory = get_parameter("download_directory") or shell.SHGetKnownFolderPath(shellcon.FOLDERID_Downloads)
+download_playlist = get_parameter("download_playlist") == "True" or False
+video_sizes = ("360", "480", "720", "1080")
+video_size = get_parameter("video_size") or "360"
+
+def write_config():
+    if (not ini_config.has_section("settings")):
+        ini_config.add_section("settings")
+
+    set_parameter("download_directory", download_directory)
+    set_parameter("download_playlist", str(download_playlist))
+    set_parameter("video_size", video_size)
+
+    with open("yt-dlp-python-gui.ini", "w") as configfile:
+        ini_config.write(configfile)
+
+write_config()
 
 class MyLogger(QtCore.QObject):
     messageSignal = QtCore.Signal(str)
@@ -87,6 +110,7 @@ class App(QMainWindow):
         self.ui.check_download_playlist.clicked.connect(
             self.handle_check_download_playlist
         )
+        self.ui.check_download_playlist.setChecked(download_playlist)
         self.ui.pushButton_download.clicked.connect(self.handle_submit)
 
         self.ui.label_download_directory.setText(download_directory)
@@ -95,6 +119,7 @@ class App(QMainWindow):
         self.ui.comboBox_video_size.currentTextChanged.connect(
             self.handle_comboBox_video_size
         )
+        self.ui.comboBox_video_size.setCurrentText(video_size)
 
     def log(self, message):
         self.ui.plainTextEdit_logs.appendPlainText(str(message))
@@ -118,14 +143,18 @@ class App(QMainWindow):
             if filenames:
                 download_directory = filenames[0]
                 self.ui.label_download_directory.setText(download_directory)
+                print("from class: ", download_directory)
+                write_config()
 
     def handle_check_download_playlist(self):
         global download_playlist
         download_playlist = self.ui.check_download_playlist.isChecked()
+        write_config()
 
     def handle_comboBox_video_size(self, value):
         global video_size
         video_size = value
+        write_config()
 
     def handle_download_state_changed(self, msg):
         if msg == "STARTED":
@@ -150,16 +179,26 @@ class App(QMainWindow):
                 "logger": logger,
                 "progress_hooks": [yt_dlp_hook],
                 # "compat_opts": {"filename-sanitization"},
-                'postprocessors': [{'actions': [(yt_dlp.postprocessor.metadataparser.MetadataParserPP.replacer,
-                                  'title',
-                                  # https://en.wikipedia.org/wiki/NTFS restrictions /\:*"?<>| plus `'
-                                  '[\/\\\:\*\"\?\<\>\|\`\']',
-                                  '_')],
-                     'key': 'MetadataParser',
-                     'when': 'pre_process'},
-                    {'key': 'FFmpegConcat',
-                     'only_multi_video': True,
-                     'when': 'playlist'}],
+                "postprocessors": [
+                    {
+                        "actions": [
+                            (
+                                yt_dlp.postprocessor.metadataparser.MetadataParserPP.replacer,
+                                "title",
+                                # https://en.wikipedia.org/wiki/NTFS restrictions /\:*"?<>| plus `'
+                                "[\/\\\:\*\"\?\<\>\|\`']",
+                                "_",
+                            )
+                        ],
+                        "key": "MetadataParser",
+                        "when": "pre_process",
+                    },
+                    {
+                        "key": "FFmpegConcat",
+                        "only_multi_video": True,
+                        "when": "playlist",
+                    },
+                ],
                 "format_sort": [f"res:{video_size}"],
                 "noplaylist": not download_playlist,
                 "paths": {"home": download_directory},

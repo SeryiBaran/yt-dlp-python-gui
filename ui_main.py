@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setEnabled(True)
-        MainWindow.resize(660, 790)
+        MainWindow.resize(660, 830)
         font = QFont()
         font.setPointSize(14)
         MainWindow.setFont(font)
@@ -43,7 +43,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 638, 770))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 638, 810))
         self.verticalLayout_3 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.label_13 = QLabel(self.scrollAreaWidgetContents)
@@ -200,6 +200,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.plainTextEdit_logs)
 
+        self.label = QLabel(self.scrollAreaWidgetContents)
+        self.label.setObjectName(u"label")
+
+        self.verticalLayout_3.addWidget(self.label)
+
         self.version_label = QLabel(self.scrollAreaWidgetContents)
         self.version_label.setObjectName(u"version_label")
         font2 = QFont()
@@ -231,6 +236,7 @@ class Ui_MainWindow(object):
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u043a\u0430\u0447\u0435\u0441\u0442\u0432\u043e \u0432\u0438\u0434\u0435\u043e:", None))
         self.pushButton_download.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0430\u0447\u0430\u0442\u044c", None))
         self.label_17.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0432\u043e\u0434:", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f", None))
         self.version_label.setText(QCoreApplication.translate("MainWindow", u"VERSION", None))
     # retranslateUi
 

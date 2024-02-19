@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>660</width>
-    <height>790</height>
+    <height>830</height>
    </rect>
   </property>
   <property name="font">
@@ -45,7 +45,7 @@
          <x>0</x>
          <y>0</y>
          <width>638</width>
-         <height>770</height>
+         <height>810</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -263,6 +263,13 @@ QCheckBox::indicator:unchecked
           </property>
           <property name="readOnly">
            <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Информация</string>
           </property>
          </widget>
         </item>
