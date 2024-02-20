@@ -10,6 +10,11 @@ GUI для yt-dlp на Python + PySide6.
 
 TL;DR: я не я, корова не моя :)
 
+## Скачать (Windows)
+
+- [Стандартный интерфейс](https://github.com/SeryiBaran/yt-dlp-python-gui/releases/download/latest/yt-dlp-python-gui.exe)
+- [Большой интерфейс](https://github.com/SeryiBaran/yt-dlp-python-gui/releases/download/latest/yt-dlp-python-gui__big_ui.exe)
+
 ## Сборка
 
 ```bash
