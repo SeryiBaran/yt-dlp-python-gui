@@ -9,13 +9,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>790</height>
+    <width>420</width>
+    <height>680</height>
    </rect>
   </property>
   <property name="font">
    <font>
-    <pointsize>14</pointsize>
+    <pointsize>9</pointsize>
    </font>
   </property>
   <property name="windowTitle">
@@ -62,8 +62,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>640</width>
-         <height>790</height>
+         <width>420</width>
+         <height>680</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -71,7 +71,7 @@
          <widget class="QLabel" name="label_13">
           <property name="font">
            <font>
-            <pointsize>26</pointsize>
+            <pointsize>18</pointsize>
            </font>
           </property>
           <property name="text">
@@ -190,27 +190,6 @@
         </item>
         <item>
          <widget class="QCheckBox" name="check_download_playlist">
-          <property name="font">
-           <font>
-            <pointsize>14</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QCheckBox::indicator
-{
-	width: 50px;
-	height: 50px;
-}
-QCheckBox::indicator:checked
-{
-    image: url(:/icons/CarbonCheckboxChecked.svg);
-}
-QCheckBox::indicator:unchecked
-{
-    image: url(:/icons/CarbonCheckbox.svg);
-}
-</string>
-          </property>
           <property name="text">
            <string>Скачать плейлист</string>
           </property>
@@ -265,7 +244,7 @@ QCheckBox::indicator:unchecked
            </font>
           </property>
           <property name="text">
-           <string>Внимание: для скачивания видео в 1080 рекомендуется установить FFmpeg. Например, с помощью scoop. Иначе вместо 1080 может качаться 720.</string>
+           <string>Внимание: для скачивания видео в 1080 рекомендуется установить FFmpeg, иначе вместо 1080 может качаться 720. Как установить написано в &quot;Информация о программе&quot;.</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>

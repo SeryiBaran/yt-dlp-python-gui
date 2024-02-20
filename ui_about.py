@@ -24,7 +24,7 @@ class Ui_AboutWindow(object):
     def setupUi(self, AboutWindow):
         if not AboutWindow.objectName():
             AboutWindow.setObjectName(u"AboutWindow")
-        AboutWindow.resize(400, 210)
+        AboutWindow.resize(400, 280)
         icon = QIcon()
         icon.addFile(u":/icons/icon.ico", QSize(), QIcon.Normal, QIcon.On)
         AboutWindow.setWindowIcon(icon)
@@ -55,12 +55,6 @@ class Ui_AboutWindow(object):
 
         self.verticalLayout_2.addWidget(self.label_3)
 
-        self.label_2 = QLabel(self.widget)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setWordWrap(True)
-
-        self.verticalLayout_2.addWidget(self.label_2)
-
         self.versionsLabel = QLabel(self.widget)
         self.versionsLabel.setObjectName(u"versionsLabel")
 
@@ -71,6 +65,19 @@ class Ui_AboutWindow(object):
         self.label_4.setOpenExternalLinks(True)
 
         self.verticalLayout_2.addWidget(self.label_4)
+
+        self.label_2 = QLabel(self.widget)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setFont(font)
+
+        self.verticalLayout_2.addWidget(self.label_2)
+
+        self.label_5 = QLabel(self.widget)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setWordWrap(True)
+        self.label_5.setOpenExternalLinks(True)
+
+        self.verticalLayout_2.addWidget(self.label_5)
 
         self.verticalSpacer = QSpacerItem(20, 5, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -96,9 +103,10 @@ class Ui_AboutWindow(object):
         AboutWindow.setWindowTitle(QCoreApplication.translate("AboutWindow", u"\u041e \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0435", None))
         self.label.setText(QCoreApplication.translate("AboutWindow", u"\u041e \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0435", None))
         self.label_3.setText(QCoreApplication.translate("AboutWindow", u"\u041e\u0444\u0438\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0435 \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u044b - yt-dlp-python-gui.", None))
-        self.label_2.setText(QCoreApplication.translate("AboutWindow", u"<html><head/><body><p>\u0422\u0443\u0442 \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u043e\u043f\u0438\u0441\u0430\u043d\u0438\u0435, \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e\u0431 \u0430\u0432\u0442\u043e\u0440\u0435, \u0435\u0433\u043e \u0431\u0438\u043e\u0433\u0440\u0430\u0444\u0438\u044f, \u0440\u0435\u043a\u043b\u0430\u043c\u0430 \u043e\u043a\u043e\u043d... \u041c\u043d\u0435 \u043b\u0435\u043d\u044c :3</p></body></html>", None))
         self.versionsLabel.setText(QCoreApplication.translate("AboutWindow", u"\u0412\u0435\u0440\u0441\u0438\u044f \u044d\u0442\u043e\u0439 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u044b - {VERSION}\n"
 "\u0412\u0435\u0440\u0441\u0438\u044f yt-dlp - {YT_DLP_VERSION}", None))
-        self.label_4.setText(QCoreApplication.translate("AboutWindow", u"<html><head/><body><p>\u0420\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0447\u0438\u043a - <a href=\"https://seryibaran.github.io\"><span style=\" text-decoration: underline; color:#4c4a48;\">SeryiBaran</span></a></p></body></html>", None))
+        self.label_4.setText(QCoreApplication.translate("AboutWindow", u"<html><head/><body><p>\u0420\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0447\u0438\u043a - SeryiBaran (<a href=\"https://seryibaran.github.io\"><span style=\" text-decoration: underline; color:#4c4a48;\">seryibaran.github.io</span></a>)</p></body></html>", None))
+        self.label_2.setText(QCoreApplication.translate("AboutWindow", u"\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430 FFmpeg", None))
+        self.label_5.setText(QCoreApplication.translate("AboutWindow", u"<html><head/><body><p>\u0414\u043b\u044f \u0441\u043a\u0430\u0447\u0438\u0432\u0430\u043d\u0438\u044f \u043d\u0435\u043a\u043e\u0442\u043e\u0440\u044b\u0445 \u0432\u0438\u0434\u0435\u043e \u0432 1080 \u043d\u0443\u0436\u0435\u043d FFmpeg. \u0415\u0433\u043e \u043c\u043e\u0436\u043d\u043e \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u0447\u0435\u0440\u0435\u0437 Scoop (<a href=\"https://scoop.sh\"><span style=\" text-decoration: underline; color:#4c4a48;\">scoop.sh</span></a>), \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u043c\u043e\u0435\u0433\u043e \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u0449\u0438\u043a\u0430 (<a href=\"https://github.com/SeryiBaran/ffmpeg_installer\"><span style=\" text-decoration: underline; color:#4c4a48;\">github.com/SeryiBaran/ffmpeg_installer</span></a>) \u0438\u043b\u0438 \u043f\u043e \u0438\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u044f\u043c \u0432 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442\u0435.</p></body></html>", None))
     # retranslateUi
 
