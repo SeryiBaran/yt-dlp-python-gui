@@ -18,7 +18,7 @@ from ui_main import Ui_MainWindow # Standard compact 9px ui
 
 from ui_about import Ui_AboutWindow
 
-VERSION = "1.0.4"
+VERSION = "1.0.5"
 YT_DLP_VERSION = "2023.12.30"
 
 VERSION_LABEL_VALUE = f"""Версия этой программы - {VERSION}
