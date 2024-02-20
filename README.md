@@ -26,6 +26,8 @@ python -m venv .venv
 .venv/Scripts/Activate.ps1
 pip install -r requirements.txt
 
+pyside6-uic .\ui\main.ui -o .\ui_main.py && pyside6-uic .\ui\main__big_ui.ui -o .\ui_main__big_ui.py && pyside6-uic .\ui\about.ui -o .\ui_about.py
+
 pyinstaller --clean -n "yt-dlp-python-gui" -w -y -F -i="ui\icon.ico" --add-data="ui\icon.ico:ui" .\main.py
 ```
 
