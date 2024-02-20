@@ -12,9 +12,9 @@ from PySide6.QtWidgets import (
     QDialog
 )
 
-BIG_UI = False # Change to `False` if need standard compact 9px ui
-from ui_main import Ui_MainWindow # Standard compact 9px ui
-# from ui_main__big_ui import Ui_MainWindow # Big ui
+BIG_UI = True # Change to `False` if need standard compact 9px ui
+# from ui_main import Ui_MainWindow # Standard compact 9px ui
+from ui_main__big_ui import Ui_MainWindow # Big ui
 
 from ui_about import Ui_AboutWindow
 
