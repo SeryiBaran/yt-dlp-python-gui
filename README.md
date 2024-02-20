@@ -12,8 +12,8 @@ TL;DR: я не я, корова не моя :)
 
 ## Скачать (Windows)
 
-- [Стандартный интерфейс](https://github.com/SeryiBaran/yt-dlp-python-gui/releases/download/latest/yt-dlp-python-gui.exe)
-- [Большой интерфейс](https://github.com/SeryiBaran/yt-dlp-python-gui/releases/download/latest/yt-dlp-python-gui__big_ui.exe)
+- [Стандартный интерфейс](https://github.com/SeryiBaran/yt-dlp-python-gui/releases/latest/download/yt-dlp-python-gui.exe)
+- [Большой интерфейс](https://github.com/SeryiBaran/yt-dlp-python-gui/releases/latest/download/yt-dlp-python-gui__big_ui.exe)
 
 ## Сборка
 
