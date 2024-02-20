@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>350</width>
-    <height>640</height>
+    <width>420</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="font">
@@ -62,8 +62,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>350</width>
-         <height>640</height>
+         <width>420</width>
+         <height>700</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -83,11 +83,6 @@
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item>
            <widget class="QPushButton" name="aboutButton">
-            <property name="font">
-             <font>
-              <pointsize>9</pointsize>
-             </font>
-            </property>
             <property name="text">
              <string>Информация о программе</string>
             </property>
@@ -195,11 +190,6 @@
         </item>
         <item>
          <widget class="QCheckBox" name="check_download_playlist">
-          <property name="font">
-           <font>
-            <pointsize>9</pointsize>
-           </font>
-          </property>
           <property name="text">
            <string>Скачать плейлист</string>
           </property>
@@ -245,6 +235,21 @@
            </spacer>
           </item>
          </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Внимание: для скачивания видео в 1080 рекомендуется установить FFmpeg. Например, с помощью scoop. Иначе вместо 1080 может качаться 720.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="Line" name="line_15">

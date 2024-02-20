@@ -1,5 +1,4 @@
 import sys
-from pathlib import Path
 from win32com.shell import shell, shellcon
 import yt_dlp
 import configparser
@@ -13,10 +12,14 @@ from PySide6.QtWidgets import (
     QDialog
 )
 
-from ui_main import Ui_MainWindow
+from ui_standart_size_main import Ui_MainWindow # Standard compact 9px ui
+# from ui_main import Ui_MainWindow # Big ui
+
 from ui_about import Ui_AboutWindow
 
-VERSION = "1.0.3"
+BIG_UI = False # Change to `False` if need standard compact 9px ui
+
+VERSION = "1.0.4"
 YT_DLP_VERSION = "2023.12.30"
 
 VERSION_LABEL_VALUE = f"""Версия этой программы - {VERSION}
@@ -127,7 +130,8 @@ class App(QMainWindow):
         self.window = Ui_MainWindow()
         self.ui = self.window
         self.ui.setupUi(self)
-        self.setWindowState(QtCore.Qt.WindowMaximized)
+        if BIG_UI:
+            self.setWindowState(QtCore.Qt.WindowMaximized)
 
         self.ui.plainTextEdit_urls.textChanged.connect(self.handle_plainTextEdit_urls)
         self.ui.button_download_directory.clicked.connect(

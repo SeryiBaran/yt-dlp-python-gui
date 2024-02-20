@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main.ui'
+## Form generated from reading UI file 'standart_size_main.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.1
 ##
@@ -26,9 +26,9 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setEnabled(True)
-        MainWindow.resize(640, 790)
+        MainWindow.resize(420, 700)
         font = QFont()
-        font.setPointSize(14)
+        font.setPointSize(9)
         MainWindow.setFont(font)
         icon = QIcon()
         icon.addFile(u":/icons/icon.ico", QSize(), QIcon.Normal, QIcon.On)
@@ -46,13 +46,13 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 640, 790))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 420, 700))
         self.verticalLayout_3 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.label_13 = QLabel(self.scrollAreaWidgetContents)
         self.label_13.setObjectName(u"label_13")
         font1 = QFont()
-        font1.setPointSize(26)
+        font1.setPointSize(18)
         self.label_13.setFont(font1)
 
         self.verticalLayout_3.addWidget(self.label_13)
@@ -135,21 +135,6 @@ class Ui_MainWindow(object):
 
         self.check_download_playlist = QCheckBox(self.scrollAreaWidgetContents)
         self.check_download_playlist.setObjectName(u"check_download_playlist")
-        self.check_download_playlist.setFont(font)
-        self.check_download_playlist.setStyleSheet(u"QCheckBox::indicator\n"
-"{\n"
-"	width: 50px;\n"
-"	height: 50px;\n"
-"}\n"
-"QCheckBox::indicator:checked\n"
-"{\n"
-"    image: url(:/icons/CarbonCheckboxChecked.svg);\n"
-"}\n"
-"QCheckBox::indicator:unchecked\n"
-"{\n"
-"    image: url(:/icons/CarbonCheckbox.svg);\n"
-"}\n"
-"")
 
         self.verticalLayout_3.addWidget(self.check_download_playlist)
 
@@ -182,9 +167,7 @@ class Ui_MainWindow(object):
 
         self.label = QLabel(self.scrollAreaWidgetContents)
         self.label.setObjectName(u"label")
-        font2 = QFont()
-        font2.setPointSize(9)
-        self.label.setFont(font2)
+        self.label.setFont(font)
         self.label.setWordWrap(True)
 
         self.verticalLayout_3.addWidget(self.label)
