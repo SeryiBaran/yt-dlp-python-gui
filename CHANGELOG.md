@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog],
 and this project adheres to [Semantic Versioning] and [Conventional Commits].
 
+## [1.0.5] - 2024-02-20
+
+### Added
+
+- add ffmpeg information in "About program"
+
+## [1.0.4] - 2024-02-20
+
+### Added
+
+- compact ui (big ui not removed)
+- normal mp4 downloading if ffmpeg installed
+
+### Fixed
+
+- set openExternalLinks in about window links to `True`
+
 ## [1.0.3] - 2024-02-19
 
 ### Added
