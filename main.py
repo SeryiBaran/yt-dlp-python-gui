@@ -19,7 +19,7 @@ from ui_main__big_ui import Ui_MainWindow # Big ui
 
 from ui_about import Ui_AboutWindow
 
-VERSION = "1.0.5"
+VERSION = "1.0.6"
 YT_DLP_VERSION = "2023.12.30"
 
 VERSION_LABEL_VALUE = f"""Версия этой программы - {VERSION}

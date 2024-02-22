@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog],
 and this project adheres to [Semantic Versioning] and [Conventional Commits].
 
+## [1.0.6] - 2024-02-22
+
+### Added
+
+- dark theme with pyqtdarktheme
+
 ## [1.0.5] - 2024-02-20
 
 ### Added
