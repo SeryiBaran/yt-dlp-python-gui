@@ -21,7 +21,7 @@ TL;DR: я не я, корова не моя :)
 
 ## Сборка
 
-```bash
+```powershell
 python -m venv .venv
 .venv/Scripts/Activate.ps1
 pip install -r requirements.txt
