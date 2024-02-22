@@ -11,6 +11,7 @@ from PySide6.QtWidgets import (
     QFileDialog,
     QDialog
 )
+import qdarktheme
 
 BIG_UI = True # Change to `False` if need standard compact 9px ui
 # from ui_main import Ui_MainWindow # Standard compact 9px ui
@@ -244,6 +245,7 @@ class App(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+    qdarktheme.setup_theme("auto")
 
     window = App()
     window.show()

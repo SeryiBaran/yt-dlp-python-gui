@@ -26,10 +26,7 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setEnabled(True)
-        MainWindow.resize(640, 790)
-        font = QFont()
-        font.setPointSize(14)
-        MainWindow.setFont(font)
+        MainWindow.resize(640, 810)
         icon = QIcon()
         icon.addFile(u":/icons/icon.ico", QSize(), QIcon.Normal, QIcon.On)
         MainWindow.setWindowIcon(icon)
@@ -46,14 +43,14 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 640, 790))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 640, 810))
         self.verticalLayout_3 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.label_13 = QLabel(self.scrollAreaWidgetContents)
         self.label_13.setObjectName(u"label_13")
-        font1 = QFont()
-        font1.setPointSize(26)
-        self.label_13.setFont(font1)
+        font = QFont()
+        font.setPointSize(26)
+        self.label_13.setFont(font)
 
         self.verticalLayout_3.addWidget(self.label_13)
 
@@ -61,6 +58,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.aboutButton = QPushButton(self.scrollAreaWidgetContents)
         self.aboutButton.setObjectName(u"aboutButton")
+        font1 = QFont()
+        font1.setPointSize(14)
+        self.aboutButton.setFont(font1)
 
         self.horizontalLayout_4.addWidget(self.aboutButton)
 
@@ -80,6 +80,7 @@ class Ui_MainWindow(object):
 
         self.label_15 = QLabel(self.scrollAreaWidgetContents)
         self.label_15.setObjectName(u"label_15")
+        self.label_15.setFont(font1)
         self.label_15.setWordWrap(True)
 
         self.verticalLayout_3.addWidget(self.label_15)
@@ -92,6 +93,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.plainTextEdit_urls.sizePolicy().hasHeightForWidth())
         self.plainTextEdit_urls.setSizePolicy(sizePolicy)
         self.plainTextEdit_urls.setMaximumSize(QSize(16777215, 80))
+        self.plainTextEdit_urls.setFont(font1)
 
         self.verticalLayout_3.addWidget(self.plainTextEdit_urls)
 
@@ -104,6 +106,7 @@ class Ui_MainWindow(object):
 
         self.label_18 = QLabel(self.scrollAreaWidgetContents)
         self.label_18.setObjectName(u"label_18")
+        self.label_18.setFont(font1)
 
         self.verticalLayout_3.addWidget(self.label_18)
 
@@ -111,11 +114,13 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.button_download_directory = QPushButton(self.scrollAreaWidgetContents)
         self.button_download_directory.setObjectName(u"button_download_directory")
+        self.button_download_directory.setFont(font1)
 
         self.horizontalLayout_3.addWidget(self.button_download_directory)
 
         self.label_download_directory = QLabel(self.scrollAreaWidgetContents)
         self.label_download_directory.setObjectName(u"label_download_directory")
+        self.label_download_directory.setFont(font1)
 
         self.horizontalLayout_3.addWidget(self.label_download_directory)
 
@@ -135,21 +140,8 @@ class Ui_MainWindow(object):
 
         self.check_download_playlist = QCheckBox(self.scrollAreaWidgetContents)
         self.check_download_playlist.setObjectName(u"check_download_playlist")
-        self.check_download_playlist.setFont(font)
-        self.check_download_playlist.setStyleSheet(u"QCheckBox::indicator\n"
-"{\n"
-"	width: 50px;\n"
-"	height: 50px;\n"
-"}\n"
-"QCheckBox::indicator:checked\n"
-"{\n"
-"    image: url(:/icons/CarbonCheckboxChecked.svg);\n"
-"}\n"
-"QCheckBox::indicator:unchecked\n"
-"{\n"
-"    image: url(:/icons/CarbonCheckbox.svg);\n"
-"}\n"
-"")
+        self.check_download_playlist.setFont(font1)
+        self.check_download_playlist.setStyleSheet(u"QCheckBox::indicator { width: 36px; height: 36px;}")
 
         self.verticalLayout_3.addWidget(self.check_download_playlist)
 
@@ -164,12 +156,14 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.label_14 = QLabel(self.scrollAreaWidgetContents)
         self.label_14.setObjectName(u"label_14")
+        self.label_14.setFont(font1)
 
         self.horizontalLayout.addWidget(self.label_14)
 
         self.comboBox_video_size = QComboBox(self.scrollAreaWidgetContents)
         self.comboBox_video_size.setObjectName(u"comboBox_video_size")
         self.comboBox_video_size.setMinimumSize(QSize(100, 0))
+        self.comboBox_video_size.setFont(font1)
 
         self.horizontalLayout.addWidget(self.comboBox_video_size)
 
@@ -198,6 +192,7 @@ class Ui_MainWindow(object):
 
         self.pushButton_download = QPushButton(self.scrollAreaWidgetContents)
         self.pushButton_download.setObjectName(u"pushButton_download")
+        self.pushButton_download.setFont(font1)
 
         self.verticalLayout_3.addWidget(self.pushButton_download)
 
@@ -210,6 +205,7 @@ class Ui_MainWindow(object):
 
         self.label_17 = QLabel(self.scrollAreaWidgetContents)
         self.label_17.setObjectName(u"label_17")
+        self.label_17.setFont(font1)
 
         self.verticalLayout_3.addWidget(self.label_17)
 
