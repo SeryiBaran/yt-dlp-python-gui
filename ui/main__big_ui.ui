@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>640</width>
-    <height>810</height>
+    <height>840</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -58,7 +58,7 @@
          <x>0</x>
          <y>0</y>
          <width>640</width>
-         <height>810</height>
+         <height>840</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -214,28 +214,6 @@
          </widget>
         </item>
         <item>
-         <widget class="QCheckBox" name="check_download_playlist">
-          <property name="font">
-           <font>
-            <pointsize>14</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QCheckBox::indicator { width: 36px; height: 36px;}</string>
-          </property>
-          <property name="text">
-           <string>Скачать плейлист</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="Line" name="line_13">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
            <widget class="QLabel" name="label_14">
@@ -283,14 +261,51 @@
          <widget class="QLabel" name="label">
           <property name="font">
            <font>
-            <pointsize>9</pointsize>
+            <pointsize>12</pointsize>
            </font>
           </property>
           <property name="text">
-           <string>Внимание: для скачивания видео в 1080 рекомендуется установить FFmpeg, иначе вместо 1080 может качаться 720. Как установить написано в &quot;Информация о программе&quot;.</string>
+           <string>Внимание: для скачивания видео в 1080 ТРЕБУЕТСЯ FFmpeg, иначе вместо 1080 может качаться 720. Подробнее в &quot;Информация о программе&quot;.</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_13">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="check_download_playlist">
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QCheckBox::indicator { width: 36px; height: 36px;}</string>
+          </property>
+          <property name="text">
+           <string>Скачать плейлист</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="check_download_only_music">
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QCheckBox::indicator { width: 36px; height: 36px;}</string>
+          </property>
+          <property name="text">
+           <string>Скачать только музыку в MP3 (ТРЕБУЕТСЯ FFmpeg)</string>
           </property>
          </widget>
         </item>

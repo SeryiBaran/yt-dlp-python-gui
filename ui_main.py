@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setEnabled(True)
-        MainWindow.resize(420, 700)
+        MainWindow.resize(420, 720)
         font = QFont()
         font.setPointSize(9)
         MainWindow.setFont(font)
@@ -46,7 +46,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 420, 700))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 420, 720))
         self.verticalLayout_3 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.label_13 = QLabel(self.scrollAreaWidgetContents)
@@ -133,18 +133,6 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.line_14)
 
-        self.check_download_playlist = QCheckBox(self.scrollAreaWidgetContents)
-        self.check_download_playlist.setObjectName(u"check_download_playlist")
-
-        self.verticalLayout_3.addWidget(self.check_download_playlist)
-
-        self.line_13 = QFrame(self.scrollAreaWidgetContents)
-        self.line_13.setObjectName(u"line_13")
-        self.line_13.setFrameShape(QFrame.HLine)
-        self.line_13.setFrameShadow(QFrame.Sunken)
-
-        self.verticalLayout_3.addWidget(self.line_13)
-
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.label_14 = QLabel(self.scrollAreaWidgetContents)
@@ -171,6 +159,23 @@ class Ui_MainWindow(object):
         self.label.setWordWrap(True)
 
         self.verticalLayout_3.addWidget(self.label)
+
+        self.line_13 = QFrame(self.scrollAreaWidgetContents)
+        self.line_13.setObjectName(u"line_13")
+        self.line_13.setFrameShape(QFrame.HLine)
+        self.line_13.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_3.addWidget(self.line_13)
+
+        self.check_download_playlist = QCheckBox(self.scrollAreaWidgetContents)
+        self.check_download_playlist.setObjectName(u"check_download_playlist")
+
+        self.verticalLayout_3.addWidget(self.check_download_playlist)
+
+        self.check_download_only_music = QCheckBox(self.scrollAreaWidgetContents)
+        self.check_download_only_music.setObjectName(u"check_download_only_music")
+
+        self.verticalLayout_3.addWidget(self.check_download_only_music)
 
         self.line_15 = QFrame(self.scrollAreaWidgetContents)
         self.line_15.setObjectName(u"line_15")
@@ -223,9 +228,10 @@ class Ui_MainWindow(object):
         self.label_18.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u043f\u0430\u043f\u043a\u0443 \u0434\u043b\u044f \u0437\u0430\u0433\u0440\u0443\u0437\u043a\u0438:</p></body></html>", None))
         self.button_download_directory.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0431\u0440\u0430\u0442\u044c \u043f\u0430\u043f\u043a\u0443", None))
         self.label_download_directory.setText(QCoreApplication.translate("MainWindow", u"C:/Users/ivan/Downloads", None))
-        self.check_download_playlist.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0430\u0447\u0430\u0442\u044c \u043f\u043b\u0435\u0439\u043b\u0438\u0441\u0442", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u043a\u0430\u0447\u0435\u0441\u0442\u0432\u043e \u0432\u0438\u0434\u0435\u043e:", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"\u0412\u043d\u0438\u043c\u0430\u043d\u0438\u0435: \u0434\u043b\u044f \u0441\u043a\u0430\u0447\u0438\u0432\u0430\u043d\u0438\u044f \u0432\u0438\u0434\u0435\u043e \u0432 1080 \u0440\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u0443\u0435\u0442\u0441\u044f \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c FFmpeg, \u0438\u043d\u0430\u0447\u0435 \u0432\u043c\u0435\u0441\u0442\u043e 1080 \u043c\u043e\u0436\u0435\u0442 \u043a\u0430\u0447\u0430\u0442\u044c\u0441\u044f 720. \u041a\u0430\u043a \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u043d\u0430\u043f\u0438\u0441\u0430\u043d\u043e \u0432 \"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0435\".", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"\u0412\u043d\u0438\u043c\u0430\u043d\u0438\u0435: \u0434\u043b\u044f \u0441\u043a\u0430\u0447\u0438\u0432\u0430\u043d\u0438\u044f \u0432\u0438\u0434\u0435\u043e \u0432 1080 \u0422\u0420\u0415\u0411\u0423\u0415\u0422\u0421\u042f FFmpeg, \u0438\u043d\u0430\u0447\u0435 \u0432\u043c\u0435\u0441\u0442\u043e 1080 \u043c\u043e\u0436\u0435\u0442 \u043a\u0430\u0447\u0430\u0442\u044c\u0441\u044f 720. \u041f\u043e\u0434\u0440\u043e\u0431\u043d\u0435\u0435 \u0432 \"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0435\".", None))
+        self.check_download_playlist.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0430\u0447\u0430\u0442\u044c \u043f\u043b\u0435\u0439\u043b\u0438\u0441\u0442", None))
+        self.check_download_only_music.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0430\u0447\u0430\u0442\u044c \u0442\u043e\u043b\u044c\u043a\u043e \u043c\u0443\u0437\u044b\u043a\u0443 \u0432 MP3 (\u0422\u0420\u0415\u0411\u0423\u0415\u0422\u0421\u042f FFmpeg)", None))
         self.pushButton_download.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0430\u0447\u0430\u0442\u044c", None))
         self.label_17.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0432\u043e\u0434:", None))
     # retranslateUi

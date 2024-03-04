@@ -5,21 +5,16 @@ import configparser
 
 from PySide6 import QtCore
 
-from PySide6.QtWidgets import (
-    QApplication,
-    QMainWindow,
-    QFileDialog,
-    QDialog
-)
+from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QDialog
 import qdarktheme
 
-BIG_UI = True # Change to `False` if need standard compact 9px ui
-# from ui_main import Ui_MainWindow # Standard compact 9px ui
-from ui_main__big_ui import Ui_MainWindow # Big ui
+BIG_UI = False  # Change to `True` if need big 14px ui
+from ui_main import Ui_MainWindow  # Standard compact 9px ui
+# from ui_main__big_ui import Ui_MainWindow  # Big 14px ui
 
 from ui_about import Ui_AboutWindow
 
-VERSION = "1.0.6"
+VERSION = "1.1.0"
 YT_DLP_VERSION = "2023.12.30"
 
 VERSION_LABEL_VALUE = f"""Версия этой программы - {VERSION}
@@ -48,9 +43,10 @@ urls = []
 download_directory = get_parameter("download_directory") or shell.SHGetKnownFolderPath(
     shellcon.FOLDERID_Downloads
 )
-download_playlist = get_parameter("download_playlist") == "True" or False
 video_sizes = ("360", "480", "720", "1080")
 video_size = get_parameter("video_size") or "360"
+download_playlist = get_parameter("download_playlist") == "True" or False
+download_only_music = get_parameter("download_only_music") == "True" or False
 
 
 def write_config():
@@ -58,8 +54,9 @@ def write_config():
         ini_config.add_section("settings")
 
     set_parameter("download_directory", download_directory)
-    set_parameter("download_playlist", str(download_playlist))
     set_parameter("video_size", video_size)
+    set_parameter("download_playlist", str(download_playlist))
+    set_parameter("download_only_music", str(download_only_music))
 
     with open("yt-dlp-python-gui.ini", "w") as configfile:
         ini_config.write(configfile)
@@ -133,15 +130,13 @@ class App(QMainWindow):
         if BIG_UI:
             self.setWindowState(QtCore.Qt.WindowMaximized)
 
+        self.ui.aboutButton.clicked.connect(self.open_about_window)
+
         self.ui.plainTextEdit_urls.textChanged.connect(self.handle_plainTextEdit_urls)
+
         self.ui.button_download_directory.clicked.connect(
             self.handle_download_directory_select
         )
-        self.ui.check_download_playlist.clicked.connect(
-            self.handle_check_download_playlist
-        )
-        self.ui.check_download_playlist.setChecked(download_playlist)
-        self.ui.pushButton_download.clicked.connect(self.handle_submit)
 
         self.ui.label_download_directory.setText(download_directory)
 
@@ -151,10 +146,24 @@ class App(QMainWindow):
         )
         self.ui.comboBox_video_size.setCurrentText(video_size)
 
-        self.ui.aboutButton.clicked.connect(self.open_about_window)
+        self.ui.check_download_playlist.clicked.connect(
+            self.handle_check_download_playlist
+        )
+        self.ui.check_download_playlist.setChecked(download_playlist)
+
+        self.ui.check_download_only_music.clicked.connect(
+            self.handle_check_download_only_music
+        )
+        self.ui.check_download_only_music.setChecked(download_only_music)
+
+        self.ui.pushButton_download.clicked.connect(self.handle_submit)
 
     def log(self, message):
         self.ui.plainTextEdit_logs.appendPlainText(str(message))
+
+    def open_about_window(self):
+        self.about_window = AboutWindow()
+        self.about_window.show()
 
     def handle_plainTextEdit_urls(self):
         lines_from_input = self.ui.plainTextEdit_urls.toPlainText().split("\n")
@@ -178,14 +187,19 @@ class App(QMainWindow):
                 print("from class: ", download_directory)
                 write_config()
 
+    def handle_comboBox_video_size(self, value):
+        global video_size
+        video_size = value
+        write_config()
+
     def handle_check_download_playlist(self):
         global download_playlist
         download_playlist = self.ui.check_download_playlist.isChecked()
         write_config()
 
-    def handle_comboBox_video_size(self, value):
-        global video_size
-        video_size = value
+    def handle_check_download_only_music(self):
+        global download_only_music
+        download_only_music = self.ui.check_download_only_music.isChecked()
         write_config()
 
     def handle_download_state_changed(self, msg):
@@ -205,7 +219,7 @@ class App(QMainWindow):
             logger = MyLogger()
             logger.messageSignal.connect(self.ui.plainTextEdit_logs.appendPlainText)
             self.log(
-                f"Заданы параметры: download_playlist = {download_playlist}, urls = {urls}, download_directory = {download_directory}, video_size = {video_size}"
+                f"Заданы параметры: download_playlist = {download_playlist}, urls = {urls}, download_directory = {download_directory}, video_size = {video_size}, download_playlist = {download_playlist}, download_only_music = {download_only_music}"
             )
             ydl_opts = {
                 "logger": logger,
@@ -233,15 +247,23 @@ class App(QMainWindow):
                 ],
                 "format_sort": [f"res:{video_size}", f"ext:mp4:m4a"],
                 "noplaylist": not download_playlist,
-                "paths": {"home": download_directory}
+                "paths": {"home": download_directory},
             }
+
+            if download_only_music:
+                ydl_opts["format"] = "bestaudio/best"
+                ydl_opts["postprocessors"].append(
+                    {
+                        "key": "FFmpegExtractAudio",
+                        "preferredcodec": "mp3",
+                        "preferredquality": "192",
+                    }
+                )
+
             self.thread = YoutubeDownload(urls, ydl_opts)
             self.thread.start()
             self.thread.messageSignal.connect(self.handle_download_state_changed)
 
-    def open_about_window(self):
-        self.about_window = AboutWindow()
-        self.about_window.show()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

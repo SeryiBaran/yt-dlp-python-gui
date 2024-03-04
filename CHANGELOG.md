@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog],
 and this project adheres to [Semantic Versioning] and [Conventional Commits].
 
+## [1.1.0] - 2024-03-04
+
+### Added
+
+- checkbox for mp3 only downloading
+
 ## [1.0.6] - 2024-02-22
 
 ### Added
