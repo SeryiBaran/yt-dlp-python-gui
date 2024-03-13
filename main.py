@@ -14,7 +14,7 @@ from ui_main import Ui_MainWindow  # Standard compact 9px ui
 
 from ui_about import Ui_AboutWindow
 
-VERSION = "1.1.0"
+VERSION = "1.1.1"
 YT_DLP_VERSION = "2023.12.30"
 
 VERSION_LABEL_VALUE = f"""Версия этой программы - {VERSION}
@@ -248,6 +248,7 @@ class App(QMainWindow):
                 "format_sort": [f"res:{video_size}", f"ext:mp4:m4a"],
                 "noplaylist": not download_playlist,
                 "paths": {"home": download_directory},
+                "ignoreerrors": True,
             }
 
             if download_only_music:
