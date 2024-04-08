@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog],
 and this project adheres to [Semantic Versioning] and [Conventional Commits].
 
+## [1.1.2] - 2024-04-08
+
+### Changed
+
+- Update yt-dlp version
+
+## [1.1.1] - 2024-03-13
+
+### Fixed
+
+- Continue download if error
+
 ## [1.1.0] - 2024-03-04
 
 ### Added
