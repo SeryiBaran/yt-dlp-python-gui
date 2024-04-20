@@ -169,10 +169,9 @@ class App(QMainWindow):
         self.about_window.show()
 
     def handle_button_paste_from_clipboard(self):
-        text = self.ui.plainTextEdit_urls.toPlainText()
         from_clipboard = QtGui.QGuiApplication.clipboard().text()
 
-        self.ui.plainTextEdit_urls.setPlainText(text + "\n" + from_clipboard)
+        self.ui.plainTextEdit_urls.appendPlainText("\n" + from_clipboard)
         self.handle_plainTextEdit_urls()
 
     def handle_plainTextEdit_urls(self):
