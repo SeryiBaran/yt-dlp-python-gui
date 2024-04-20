@@ -8,8 +8,6 @@ from PySide6 import QtCore, QtGui
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QDialog
 import qdarktheme
 
-# TODO: сделать побольше окно ввода URL в версии BIG_UI
-
 BIG_UI = False  # Change to `True` if need big 14px ui
 from ui_main import Ui_MainWindow  # Standard compact 9px ui
 # from ui_main__big_ui import Ui_MainWindow  # Big 14px ui
