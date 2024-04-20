@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog],
 and this project adheres to [Semantic Versioning] and [Conventional Commits].
 
+## [1.1.3] - 2024-04-20
+
+### Added
+
+- Added button to paste link to textarea
+
+### Changed
+
+- Improved design
+
 ## [1.1.2] - 2024-04-08
 
 ### Changed

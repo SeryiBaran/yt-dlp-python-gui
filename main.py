@@ -3,10 +3,12 @@ from win32com.shell import shell, shellcon
 import yt_dlp
 import configparser
 
-from PySide6 import QtCore
+from PySide6 import QtCore, QtGui
 
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QDialog
 import qdarktheme
+
+# TODO: сделать побольше окно ввода URL в версии BIG_UI
 
 BIG_UI = False  # Change to `True` if need big 14px ui
 from ui_main import Ui_MainWindow  # Standard compact 9px ui
@@ -14,7 +16,7 @@ from ui_main import Ui_MainWindow  # Standard compact 9px ui
 
 from ui_about import Ui_AboutWindow
 
-VERSION = "1.1.2"
+VERSION = "1.1.3"
 YT_DLP_VERSION = "2024.3.10"
 
 VERSION_LABEL_VALUE = f"""Версия этой программы - {VERSION}
@@ -132,13 +134,14 @@ class App(QMainWindow):
 
         self.ui.aboutButton.clicked.connect(self.open_about_window)
 
+        self.ui.button_paste_from_clipboard.clicked.connect(self.handle_button_paste_from_clipboard)
         self.ui.plainTextEdit_urls.textChanged.connect(self.handle_plainTextEdit_urls)
 
         self.ui.button_download_directory.clicked.connect(
             self.handle_download_directory_select
         )
 
-        self.ui.label_download_directory.setText(download_directory)
+        self.ui.lineEdit_download_directory.setText(download_directory)
 
         self.ui.comboBox_video_size.addItems(video_sizes)
         self.ui.comboBox_video_size.currentTextChanged.connect(
@@ -165,6 +168,13 @@ class App(QMainWindow):
         self.about_window = AboutWindow()
         self.about_window.show()
 
+    def handle_button_paste_from_clipboard(self):
+        text = self.ui.plainTextEdit_urls.toPlainText()
+        from_clipboard = QtGui.QGuiApplication.clipboard().text()
+
+        self.ui.plainTextEdit_urls.setPlainText(text + "\n" + from_clipboard)
+        self.handle_plainTextEdit_urls()
+
     def handle_plainTextEdit_urls(self):
         lines_from_input = self.ui.plainTextEdit_urls.toPlainText().split("\n")
         cleared_lines = []
@@ -183,8 +193,7 @@ class App(QMainWindow):
             filenames = dialog.selectedFiles()
             if filenames:
                 download_directory = filenames[0]
-                self.ui.label_download_directory.setText(download_directory)
-                print("from class: ", download_directory)
+                self.ui.lineEdit_download_directory.setText(download_directory)
                 write_config()
 
     def handle_comboBox_video_size(self, value):

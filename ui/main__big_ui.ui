@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>840</height>
+    <width>620</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -42,7 +42,7 @@
      <widget class="QScrollArea" name="scrollArea">
       <property name="maximumSize">
        <size>
-        <width>640</width>
+        <width>1024</width>
         <height>16777215</height>
        </size>
       </property>
@@ -57,25 +57,25 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>640</width>
-         <height>840</height>
+         <width>603</width>
+         <height>880</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <widget class="QLabel" name="label_13">
-          <property name="font">
-           <font>
-            <pointsize>26</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Скачивалка с YouTube</string>
-          </property>
-         </widget>
-        </item>
-        <item>
          <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QLabel" name="label_13">
+            <property name="font">
+             <font>
+              <pointsize>22</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Скачивалка с YouTube</string>
+            </property>
+           </widget>
+          </item>
           <item>
            <widget class="QPushButton" name="aboutButton">
             <property name="font">
@@ -84,7 +84,7 @@
              </font>
             </property>
             <property name="text">
-             <string>Информация о программе</string>
+             <string>ИНФО</string>
             </property>
            </widget>
           </item>
@@ -126,6 +126,35 @@
          </widget>
         </item>
         <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QPushButton" name="button_paste_from_clipboard">
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Добавить из буфера обмена</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
          <widget class="QPlainTextEdit" name="plainTextEdit_urls">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -136,13 +165,16 @@
           <property name="maximumSize">
            <size>
             <width>16777215</width>
-            <height>80</height>
+            <height>140</height>
            </size>
           </property>
           <property name="font">
            <font>
             <pointsize>14</pointsize>
            </font>
+          </property>
+          <property name="placeholderText">
+           <string>Вставьте здесь ваши ссылки, разделяя их клавишей Enter</string>
           </property>
          </widget>
         </item>
@@ -154,19 +186,19 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_18">
-          <property name="font">
-           <font>
-            <pointsize>14</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Выберите папку для загрузки:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-        <item>
          <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QLabel" name="label_18">
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Выберите папку для загрузки:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
           <item>
            <widget class="QPushButton" name="button_download_directory">
             <property name="font">
@@ -176,18 +208,6 @@
             </property>
             <property name="text">
              <string>Выбрать папку</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_download_directory">
-            <property name="font">
-             <font>
-              <pointsize>14</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>C:/Users/ivan/Downloads</string>
             </property>
            </widget>
           </item>
@@ -205,6 +225,18 @@
            </spacer>
           </item>
          </layout>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_download_directory">
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="Line" name="line_14">
@@ -265,7 +297,7 @@
            </font>
           </property>
           <property name="text">
-           <string>Внимание: для скачивания видео в 1080 ТРЕБУЕТСЯ FFmpeg, иначе вместо 1080 может качаться 720. Подробнее в &quot;Информация о программе&quot;.</string>
+           <string>Внимание: для скачивания видео в 1080 ТРЕБУЕТСЯ FFmpeg, иначе вместо 1080 может качаться 720. Подробнее в &quot;ИНФО&quot;.</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
@@ -290,7 +322,7 @@
            <string notr="true">QCheckBox::indicator { width: 36px; height: 36px;}</string>
           </property>
           <property name="text">
-           <string>Скачать плейлист</string>
+           <string>Скачать плейлист (если есть)</string>
           </property>
          </widget>
         </item>

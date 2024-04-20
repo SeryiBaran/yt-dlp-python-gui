@@ -16,9 +16,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFrame,
-    QHBoxLayout, QLabel, QMainWindow, QPlainTextEdit,
-    QPushButton, QScrollArea, QSizePolicy, QSpacerItem,
-    QVBoxLayout, QWidget)
+    QHBoxLayout, QLabel, QLineEdit, QMainWindow,
+    QPlainTextEdit, QPushButton, QScrollArea, QSizePolicy,
+    QSpacerItem, QVBoxLayout, QWidget)
 import resources_rc
 
 class Ui_MainWindow(object):
@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setEnabled(True)
-        MainWindow.resize(640, 840)
+        MainWindow.resize(620, 720)
         icon = QIcon()
         icon.addFile(u":/icons/icon.ico", QSize(), QIcon.Normal, QIcon.On)
         MainWindow.setWindowIcon(icon)
@@ -38,24 +38,24 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.scrollArea = QScrollArea(self.centralwidget)
         self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setMaximumSize(QSize(640, 16777215))
+        self.scrollArea.setMaximumSize(QSize(1024, 16777215))
         self.scrollArea.setFrameShape(QFrame.NoFrame)
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 640, 840))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 603, 880))
         self.verticalLayout_3 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.label_13 = QLabel(self.scrollAreaWidgetContents)
         self.label_13.setObjectName(u"label_13")
         font = QFont()
-        font.setPointSize(26)
+        font.setPointSize(22)
         self.label_13.setFont(font)
 
-        self.verticalLayout_3.addWidget(self.label_13)
+        self.horizontalLayout_4.addWidget(self.label_13)
 
-        self.horizontalLayout_4 = QHBoxLayout()
-        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.aboutButton = QPushButton(self.scrollAreaWidgetContents)
         self.aboutButton.setObjectName(u"aboutButton")
         font1 = QFont()
@@ -85,6 +85,21 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.label_15)
 
+        self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.button_paste_from_clipboard = QPushButton(self.scrollAreaWidgetContents)
+        self.button_paste_from_clipboard.setObjectName(u"button_paste_from_clipboard")
+        self.button_paste_from_clipboard.setFont(font1)
+
+        self.horizontalLayout_5.addWidget(self.button_paste_from_clipboard)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_5.addItem(self.horizontalSpacer_2)
+
+
+        self.verticalLayout_3.addLayout(self.horizontalLayout_5)
+
         self.plainTextEdit_urls = QPlainTextEdit(self.scrollAreaWidgetContents)
         self.plainTextEdit_urls.setObjectName(u"plainTextEdit_urls")
         sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
@@ -92,7 +107,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.plainTextEdit_urls.sizePolicy().hasHeightForWidth())
         self.plainTextEdit_urls.setSizePolicy(sizePolicy)
-        self.plainTextEdit_urls.setMaximumSize(QSize(16777215, 80))
+        self.plainTextEdit_urls.setMaximumSize(QSize(16777215, 140))
         self.plainTextEdit_urls.setFont(font1)
 
         self.verticalLayout_3.addWidget(self.plainTextEdit_urls)
@@ -104,25 +119,19 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.line_16)
 
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.label_18 = QLabel(self.scrollAreaWidgetContents)
         self.label_18.setObjectName(u"label_18")
         self.label_18.setFont(font1)
 
-        self.verticalLayout_3.addWidget(self.label_18)
+        self.horizontalLayout_3.addWidget(self.label_18)
 
-        self.horizontalLayout_3 = QHBoxLayout()
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.button_download_directory = QPushButton(self.scrollAreaWidgetContents)
         self.button_download_directory.setObjectName(u"button_download_directory")
         self.button_download_directory.setFont(font1)
 
         self.horizontalLayout_3.addWidget(self.button_download_directory)
-
-        self.label_download_directory = QLabel(self.scrollAreaWidgetContents)
-        self.label_download_directory.setObjectName(u"label_download_directory")
-        self.label_download_directory.setFont(font1)
-
-        self.horizontalLayout_3.addWidget(self.label_download_directory)
 
         self.horizontalSpacer_8 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -130,6 +139,13 @@ class Ui_MainWindow(object):
 
 
         self.verticalLayout_3.addLayout(self.horizontalLayout_3)
+
+        self.lineEdit_download_directory = QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_download_directory.setObjectName(u"lineEdit_download_directory")
+        self.lineEdit_download_directory.setFont(font1)
+        self.lineEdit_download_directory.setReadOnly(True)
+
+        self.verticalLayout_3.addWidget(self.lineEdit_download_directory)
 
         self.line_14 = QFrame(self.scrollAreaWidgetContents)
         self.line_14.setObjectName(u"line_14")
@@ -238,14 +254,15 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0430\u0447\u0438\u0432\u0430\u043b\u043a\u0430 \u0441 YouTube (\u0438\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441 \u0434\u043b\u044f yt-dlp)", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0430\u0447\u0438\u0432\u0430\u043b\u043a\u0430 \u0441 YouTube", None))
-        self.aboutButton.setText(QCoreApplication.translate("MainWindow", u"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0435", None))
+        self.aboutButton.setText(QCoreApplication.translate("MainWindow", u"\u0418\u041d\u0424\u041e", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>\u0423\u043a\u0430\u0436\u0438\u0442\u0435 \u0430\u0434\u0440\u0435\u0441 \u0432\u0438\u0434\u0435\u043e/\u043f\u043b\u0435\u0439\u043b\u0438\u0441\u0442\u0430 (\u043c\u043e\u0436\u043d\u043e \u0432\u0441\u0442\u0430\u0432\u043b\u044f\u0442\u044c \u043c\u043d\u043e\u0433\u043e \u0441\u0441\u044b\u043b\u043e\u043a, \u043a\u0430\u0436\u0434\u0443\u044e \u043d\u0430 \u043d\u043e\u0432\u043e\u0439 \u0441\u0442\u0440\u043e\u043a\u0435):</p></body></html>", None))
+        self.button_paste_from_clipboard.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u0438\u0437 \u0431\u0443\u0444\u0435\u0440\u0430 \u043e\u0431\u043c\u0435\u043d\u0430", None))
+        self.plainTextEdit_urls.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u0412\u0441\u0442\u0430\u0432\u044c\u0442\u0435 \u0437\u0434\u0435\u0441\u044c \u0432\u0430\u0448\u0438 \u0441\u0441\u044b\u043b\u043a\u0438, \u0440\u0430\u0437\u0434\u0435\u043b\u044f\u044f \u0438\u0445 \u043a\u043b\u0430\u0432\u0438\u0448\u0435\u0439 Enter", None))
         self.label_18.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u043f\u0430\u043f\u043a\u0443 \u0434\u043b\u044f \u0437\u0430\u0433\u0440\u0443\u0437\u043a\u0438:</p></body></html>", None))
         self.button_download_directory.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0431\u0440\u0430\u0442\u044c \u043f\u0430\u043f\u043a\u0443", None))
-        self.label_download_directory.setText(QCoreApplication.translate("MainWindow", u"C:/Users/ivan/Downloads", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u043a\u0430\u0447\u0435\u0441\u0442\u0432\u043e \u0432\u0438\u0434\u0435\u043e:", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"\u0412\u043d\u0438\u043c\u0430\u043d\u0438\u0435: \u0434\u043b\u044f \u0441\u043a\u0430\u0447\u0438\u0432\u0430\u043d\u0438\u044f \u0432\u0438\u0434\u0435\u043e \u0432 1080 \u0422\u0420\u0415\u0411\u0423\u0415\u0422\u0421\u042f FFmpeg, \u0438\u043d\u0430\u0447\u0435 \u0432\u043c\u0435\u0441\u0442\u043e 1080 \u043c\u043e\u0436\u0435\u0442 \u043a\u0430\u0447\u0430\u0442\u044c\u0441\u044f 720. \u041f\u043e\u0434\u0440\u043e\u0431\u043d\u0435\u0435 \u0432 \"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0435\".", None))
-        self.check_download_playlist.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0430\u0447\u0430\u0442\u044c \u043f\u043b\u0435\u0439\u043b\u0438\u0441\u0442", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"\u0412\u043d\u0438\u043c\u0430\u043d\u0438\u0435: \u0434\u043b\u044f \u0441\u043a\u0430\u0447\u0438\u0432\u0430\u043d\u0438\u044f \u0432\u0438\u0434\u0435\u043e \u0432 1080 \u0422\u0420\u0415\u0411\u0423\u0415\u0422\u0421\u042f FFmpeg, \u0438\u043d\u0430\u0447\u0435 \u0432\u043c\u0435\u0441\u0442\u043e 1080 \u043c\u043e\u0436\u0435\u0442 \u043a\u0430\u0447\u0430\u0442\u044c\u0441\u044f 720. \u041f\u043e\u0434\u0440\u043e\u0431\u043d\u0435\u0435 \u0432 \"\u0418\u041d\u0424\u041e\".", None))
+        self.check_download_playlist.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0430\u0447\u0430\u0442\u044c \u043f\u043b\u0435\u0439\u043b\u0438\u0441\u0442 (\u0435\u0441\u043b\u0438 \u0435\u0441\u0442\u044c)", None))
         self.check_download_only_music.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0430\u0447\u0430\u0442\u044c \u0442\u043e\u043b\u044c\u043a\u043e \u043c\u0443\u0437\u044b\u043a\u0443 \u0432 MP3 (\u0422\u0420\u0415\u0411\u0423\u0415\u0422\u0421\u042f FFmpeg)", None))
         self.pushButton_download.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0430\u0447\u0430\u0442\u044c", None))
         self.label_17.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0432\u043e\u0434:", None))
