@@ -14,8 +14,8 @@ from ui_main import Ui_MainWindow  # Standard compact 9px ui
 
 from ui_about import Ui_AboutWindow
 
-VERSION = "1.1.3"
-YT_DLP_VERSION = "2024.3.10"
+VERSION = "1.1.4"
+YT_DLP_VERSION = "2024.7.9"
 
 VERSION_LABEL_VALUE = f"""Версия этой программы - {VERSION}
 Версия yt-dlp - {YT_DLP_VERSION}"""
@@ -169,7 +169,7 @@ class App(QMainWindow):
     def handle_button_paste_from_clipboard(self):
         from_clipboard = QtGui.QGuiApplication.clipboard().text()
 
-        self.ui.plainTextEdit_urls.appendPlainText("\n" + from_clipboard)
+        self.ui.plainTextEdit_urls.appendPlainText("\n" + from_clipboard + "\n\n")
         self.handle_plainTextEdit_urls()
 
     def handle_plainTextEdit_urls(self):
