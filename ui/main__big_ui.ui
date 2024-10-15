@@ -58,7 +58,7 @@
          <x>0</x>
          <y>0</y>
          <width>603</width>
-         <height>880</height>
+         <height>859</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -297,7 +297,7 @@
            </font>
           </property>
           <property name="text">
-           <string>Внимание: для скачивания видео в 1080 ТРЕБУЕТСЯ FFmpeg, иначе вместо 1080 может качаться 720. Подробнее в &quot;ИНФО&quot;.</string>
+           <string>Внимание: для скачивания видео ТРЕБУЕТСЯ FFmpeg. Подробнее в &quot;ИНФО&quot;.</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>

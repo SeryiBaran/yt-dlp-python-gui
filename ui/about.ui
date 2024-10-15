@@ -98,7 +98,7 @@
       <item>
        <widget class="QLabel" name="label_5">
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Для скачивания некоторых видео в 1080 нужен FFmpeg. Его можно установить через Scoop (&lt;a href=&quot;https://scoop.sh&quot;&gt;&lt;span&gt;scoop.sh&lt;/span&gt;&lt;/a&gt;), с помощью моего установщика (&lt;a href=&quot;https://github.com/SeryiBaran/ffmpeg_installer&quot;&gt;&lt;span&gt;github.com/SeryiBaran/ffmpeg_installer&lt;/span&gt;&lt;/a&gt;) или по инструкциям в интернете.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Для скачивания видео нужен FFmpeg. Его нужно установить через Scoop (&lt;a href=&quot;https://scoop.sh&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0078d4;&quot;&gt;scoop.sh&lt;/span&gt;&lt;/a&gt;), с помощью моего полурабочего установщика (&lt;a href=&quot;https://github.com/SeryiBaran/ffmpeg_installer&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0078d4;&quot;&gt;github.com/SeryiBaran/ffmpeg_installer&lt;/span&gt;&lt;/a&gt;) или по инструкциям в интернете.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="wordWrap">
          <bool>true</bool>
