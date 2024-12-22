@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog],
 and this project adheres to [Semantic Versioning] and [Conventional Commits].
 
+## [1.1.6] - 2024-12-22
+
+### Changed
+
+- Bump yt-dlp
+- Added normal default big_ui mode
+
+## [1.1.5] - 2024-10-15
+
+### Changed
+
+- Bump yt-dlp
+
+## [1.1.4] - 2024-07-13
+
+### Changed
+
+- Bump yt-dlp
+
 ## [1.1.3] - 2024-04-20
 
 ### Added

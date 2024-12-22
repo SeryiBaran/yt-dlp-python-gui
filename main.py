@@ -1,21 +1,33 @@
 import sys
+import os
 from win32com.shell import shell, shellcon
 import yt_dlp
 import configparser
+import json
 
 from PySide6 import QtCore, QtGui
 
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QDialog
+from PySide6.QtCore import QRect, QSize
+from PySide6.QtGui import QFont
+from PySide6.QtWidgets import QApplication, QMainWindow
 import qdarktheme
 
-BIG_UI = False  # Change to `True` if need big 14px ui
-from ui_main import Ui_MainWindow  # Standard compact 9px ui
-# from ui_main__big_ui import Ui_MainWindow  # Big 14px ui
-
+from ui_main import Ui_MainWindow
 from ui_about import Ui_AboutWindow
 
-VERSION = "1.1.5"
-YT_DLP_VERSION = "2024.10.7"
+def resource_path(relative_path):
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
+
+VERSION = "NOTFOUND"
+YT_DLP_VERSION = "NOTFOUND"
+
+with open(resource_path('versions.json')) as f:
+    d = json.load(f)
+    VERSION = d["app"]
+    YT_DLP_VERSION = d["yt_dlp"]
 
 VERSION_LABEL_VALUE = f"""Версия этой программы - {VERSION}
 Версия yt-dlp - {YT_DLP_VERSION}"""
@@ -45,6 +57,7 @@ download_directory = get_parameter("download_directory") or shell.SHGetKnownFold
 )
 video_sizes = ("360", "480", "720", "1080")
 video_size = get_parameter("video_size") or "360"
+big_ui = ((False) if (get_parameter("big_ui") == "False") else (True))
 download_playlist = get_parameter("download_playlist") == "True" or False
 download_only_music = get_parameter("download_only_music") == "True" or False
 
@@ -55,6 +68,7 @@ def write_config():
 
     set_parameter("download_directory", download_directory)
     set_parameter("video_size", video_size)
+    set_parameter("big_ui", str(big_ui))
     set_parameter("download_playlist", str(download_playlist))
     set_parameter("download_only_music", str(download_only_music))
 
@@ -127,12 +141,39 @@ class App(QMainWindow):
         self.window = Ui_MainWindow()
         self.ui = self.window
         self.ui.setupUi(self)
-        if BIG_UI:
+
+        if big_ui:
             self.setWindowState(QtCore.Qt.WindowMaximized)
+            self.resize(620, 720)
+
+            font = QFont()
+            font.setPointSize(14)
+            QApplication.setFont(font)
+            self.setStyleSheet("font-size: 14;")
+
+            font1 = QFont()
+            font1.setPointSize(20)
+            self.ui.label_13.setFont(font1)
+
+            self.ui.plainTextEdit_urls.setMaximumSize(QSize(16777215, 140))
+            self.ui.check_download_playlist.setStyleSheet(
+                "QCheckBox::indicator { width: 36px; height: 36px;}"
+            )
+            self.ui.check_download_only_music.setStyleSheet(
+                "QCheckBox::indicator { width: 36px; height: 36px;}"
+            )
+            self.ui.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 603, 859))
+            self.ui.plainTextEdit_urls.setMaximumSize(QSize(16777215, 140))
+
+            font3 = QFont()
+            font3.setPointSize(9)
+            self.ui.plainTextEdit_logs.setFont(font3)
 
         self.ui.aboutButton.clicked.connect(self.open_about_window)
 
-        self.ui.button_paste_from_clipboard.clicked.connect(self.handle_button_paste_from_clipboard)
+        self.ui.button_paste_from_clipboard.clicked.connect(
+            self.handle_button_paste_from_clipboard
+        )
         self.ui.plainTextEdit_urls.textChanged.connect(self.handle_plainTextEdit_urls)
 
         self.ui.button_download_directory.clicked.connect(
@@ -146,6 +187,11 @@ class App(QMainWindow):
             self.handle_comboBox_video_size
         )
         self.ui.comboBox_video_size.setCurrentText(video_size)
+
+        self.ui.check_big_ui.clicked.connect(
+            self.handle_check_big_ui
+        )
+        self.ui.check_big_ui.setChecked(big_ui)
 
         self.ui.check_download_playlist.clicked.connect(
             self.handle_check_download_playlist
@@ -164,12 +210,19 @@ class App(QMainWindow):
 
     def open_about_window(self):
         self.about_window = AboutWindow()
+
+        if big_ui:
+            font2 = QFont()
+            font2.setPointSize(20)
+            self.about_window.ui.label.setFont(font2)
+            self.about_window.ui.label_2.setFont(font2)
+
         self.about_window.show()
 
     def handle_button_paste_from_clipboard(self):
         from_clipboard = QtGui.QGuiApplication.clipboard().text()
 
-        self.ui.plainTextEdit_urls.appendPlainText("\n" + from_clipboard + "\n\n")
+        self.ui.plainTextEdit_urls.appendPlainText("\n" + from_clipboard + "\n")
         self.handle_plainTextEdit_urls()
 
     def handle_plainTextEdit_urls(self):
@@ -196,6 +249,11 @@ class App(QMainWindow):
     def handle_comboBox_video_size(self, value):
         global video_size
         video_size = value
+        write_config()
+
+    def handle_check_big_ui(self):
+        global big_ui
+        big_ui = self.ui.check_big_ui.isChecked()
         write_config()
 
     def handle_check_download_playlist(self):

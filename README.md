@@ -21,24 +21,10 @@ python -m venv .venv
 .venv/Scripts/Activate.ps1
 pip install -r requirements.txt
 
-pyside6-uic .\ui\main.ui -o .\ui_main.py && pyside6-uic .\ui\main__big_ui.ui -o .\ui_main__big_ui.py && pyside6-uic .\ui\about.ui -o .\ui_about.py
+pyside6-uic .\ui\main.ui -o .\ui_main.py && pyside6-uic .\ui\about.ui -o .\ui_about.py
+$versions = Get-Content .\versions.json -Raw | ConvertFrom-Json
 
-$ytdlppygui_version = Get-Content .\version.txt -Raw | ForEach-Object { $_.TrimEnd() }
-
-# pyinstaller --clean -n "yt-dlp-python-gui__$($ytdlppygui_version)__big_ui" -w -y -F -i="ui\icon.ico" --add-data="ui\icon.ico:ui" .\main.py
-pyinstaller --clean -n "yt-dlp-python-gui__$($ytdlppygui_version)" -w -y -F -i="ui\icon.ico" --add-data="ui\icon.ico:ui" .\main.py
-```
-
-## Если нужен большой шрифт
-
-Измените код в main.py:
-
-```diff
-
-- BIG_UI = False  # Change to `True` if need big 14px ui
-- from ui_main import Ui_MainWindow  # Standard compact 9px ui
-+ BIG_UI = True  # Change to `True` if need big 14px ui
-+ from ui_main__big_ui import Ui_MainWindow  # Big 14px ui
+pyinstaller --clean -n "yt-dlp-python-gui__$($versions.app)__$($versions.yt_dlp)" -w -y -F -i="ui\icon.ico" --add-data="ui\icon.ico:ui" --add-data="versions.json:." .\main.py
 ```
 
 ## Разработка
@@ -47,8 +33,4 @@ pyinstaller --clean -n "yt-dlp-python-gui__$($ytdlppygui_version)" -w -y -F -i="
 
 ## Linux
 
-Нужно поправить алгоритм поиска папки загрузки. Остальное всё кроссплатформенное.
-
-## ToDo
-
-- Сделать программное изменение размера шрифта (чтобы не делать две версии, обычную и big_ui, как сейчас)
+Нужно поправить алгоритм поиска папки загрузки `download_directory`. Остальное всё кроссплатформенное.

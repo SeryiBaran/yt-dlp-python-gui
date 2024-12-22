@@ -27,9 +27,6 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setEnabled(True)
         MainWindow.resize(480, 720)
-        font = QFont()
-        font.setPointSize(9)
-        MainWindow.setFont(font)
         icon = QIcon()
         icon.addFile(u":/icons/icon.ico", QSize(), QIcon.Normal, QIcon.On)
         MainWindow.setWindowIcon(icon)
@@ -53,9 +50,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.label_13 = QLabel(self.scrollAreaWidgetContents)
         self.label_13.setObjectName(u"label_13")
-        font1 = QFont()
-        font1.setPointSize(18)
-        self.label_13.setFont(font1)
+        font = QFont()
+        font.setPointSize(18)
+        self.label_13.setFont(font)
 
         self.horizontalLayout_4.addWidget(self.label_13)
 
@@ -63,6 +60,11 @@ class Ui_MainWindow(object):
         self.aboutButton.setObjectName(u"aboutButton")
 
         self.horizontalLayout_4.addWidget(self.aboutButton)
+
+        self.check_big_ui = QCheckBox(self.scrollAreaWidgetContents)
+        self.check_big_ui.setObjectName(u"check_big_ui")
+
+        self.horizontalLayout_4.addWidget(self.check_big_ui)
 
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -170,7 +172,9 @@ class Ui_MainWindow(object):
 
         self.label = QLabel(self.scrollAreaWidgetContents)
         self.label.setObjectName(u"label")
-        self.label.setFont(font)
+        font1 = QFont()
+        font1.setPointSize(9)
+        self.label.setFont(font1)
         self.label.setWordWrap(True)
 
         self.verticalLayout_3.addWidget(self.label)
@@ -237,8 +241,9 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0430\u0447\u0438\u0432\u0430\u043b\u043a\u0430 \u0441 YouTube (\u0438\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441 \u0434\u043b\u044f yt-dlp)", None))
-        self.label_13.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0430\u0447\u0438\u0432\u0430\u043b\u043a\u0430 \u0441 YouTube", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"\u041a\u0430\u0447\u0430\u043b\u043a\u0430 YouTube", None))
         self.aboutButton.setText(QCoreApplication.translate("MainWindow", u"\u0418\u041d\u0424\u041e", None))
+        self.check_big_ui.setText(QCoreApplication.translate("MainWindow", u"BIG (\u0442\u0440\u0435\u0431\u0443\u0435\u0442 \u043f\u0435\u0440\u0435\u0437\u0430\u043f\u0443\u0441\u043a\u0430)", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>\u0423\u043a\u0430\u0436\u0438\u0442\u0435 \u0430\u0434\u0440\u0435\u0441 \u0432\u0438\u0434\u0435\u043e/\u043f\u043b\u0435\u0439\u043b\u0438\u0441\u0442\u0430 (\u043c\u043e\u0436\u043d\u043e \u0432\u0441\u0442\u0430\u0432\u043b\u044f\u0442\u044c \u043c\u043d\u043e\u0433\u043e \u0441\u0441\u044b\u043b\u043e\u043a, \u043a\u0430\u0436\u0434\u0443\u044e \u043d\u0430 \u043d\u043e\u0432\u043e\u0439 \u0441\u0442\u0440\u043e\u043a\u0435):</p></body></html>", None))
         self.button_paste_from_clipboard.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u0438\u0437 \u0431\u0443\u0444\u0435\u0440\u0430 \u043e\u0431\u043c\u0435\u043d\u0430", None))
         self.plainTextEdit_urls.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u0412\u0441\u0442\u0430\u0432\u044c\u0442\u0435 \u0437\u0434\u0435\u0441\u044c \u0432\u0430\u0448\u0438 \u0441\u0441\u044b\u043b\u043a\u0438, \u0440\u0430\u0437\u0434\u0435\u043b\u044f\u044f \u0438\u0445 \u043a\u043b\u0430\u0432\u0438\u0448\u0435\u0439 Enter", None))
