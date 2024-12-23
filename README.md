@@ -29,7 +29,7 @@ pyinstaller --clean -n "yt-dlp-python-gui__$($versions.app)__$($versions.yt_dlp)
 
 ## Разработка
 
-- Чтобы изменить версию, надо отредактировать её в `main.py` и `version.txt`
+- Чтобы изменить версию, надо отредактировать её в `versions.json`
 
 ## Linux
 
