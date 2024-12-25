@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog],
 and this project adheres to [Semantic Versioning] and [Conventional Commits].
 
+## [1.2.0] - 2024-12-25
+
+### Fixed
+
+- Force download H264 codec (because AV1 doesn't play on NTV Plus TV's)
+
 ## [1.1.6] - 2024-12-22
 
 ### Changed

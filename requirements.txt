@@ -22,4 +22,4 @@ requests==2.32.3
 shiboken6==6.6.1
 urllib3==2.1.0
 websockets==13.1
-yt-dlp==2024.10.7
+yt-dlp==2024.12.13

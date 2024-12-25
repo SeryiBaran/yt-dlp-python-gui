@@ -309,7 +309,7 @@ class App(QMainWindow):
                         "when": "playlist",
                     },
                 ],
-                "format_sort": [f"res:{video_size}", f"ext:mp4:m4a"],
+                "format_sort": [f"res:{video_size}", f"ext:mp4:m4a", f"vcodec:h264"],
                 "noplaylist": not download_playlist,
                 "paths": {"home": download_directory},
                 "ignoreerrors": True,
