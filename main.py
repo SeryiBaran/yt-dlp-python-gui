@@ -1,3 +1,4 @@
+import datetime
 import sys
 import os
 from win32com.shell import shell, shellcon
@@ -16,15 +17,17 @@ import qdarktheme
 from ui_main import Ui_MainWindow
 from ui_about import Ui_AboutWindow
 
+
 def resource_path(relative_path):
-    if hasattr(sys, '_MEIPASS'):
+    if hasattr(sys, "_MEIPASS"):
         return os.path.join(sys._MEIPASS, relative_path)
     return os.path.join(os.path.abspath("."), relative_path)
+
 
 VERSION = "NOTFOUND"
 YT_DLP_VERSION = "NOTFOUND"
 
-with open(resource_path('versions.json')) as f:
+with open(resource_path("versions.json")) as f:
     d = json.load(f)
     VERSION = d["app"]
     YT_DLP_VERSION = d["yt_dlp"]
@@ -57,7 +60,7 @@ download_directory = get_parameter("download_directory") or shell.SHGetKnownFold
 )
 video_sizes = ("360", "480", "720", "1080")
 video_size = get_parameter("video_size") or "360"
-big_ui = ((False) if (get_parameter("big_ui") == "False") else (True))
+big_ui = (False) if (get_parameter("big_ui") == "False") else (True)
 download_playlist = get_parameter("download_playlist") == "True" or False
 download_only_music = get_parameter("download_only_music") == "True" or False
 
@@ -74,6 +77,17 @@ def write_config():
 
     with open("yt-dlp-python-gui.ini", "w") as configfile:
         ini_config.write(configfile)
+
+
+def write_history(urls):
+    with open("yt-dlp-python-gui__URL_HISTORY.txt", "a") as historyfile:
+        historyfile.write(
+            "\nSTART " + datetime.datetime.now().isoformat() + " IN REGIONAL TIME\n"
+        )
+        historyfile.write("\n".join(urls) + "\n")
+        historyfile.write(
+            "\nEND\n"
+        )
 
 
 write_config()
@@ -188,9 +202,7 @@ class App(QMainWindow):
         )
         self.ui.comboBox_video_size.setCurrentText(video_size)
 
-        self.ui.check_big_ui.clicked.connect(
-            self.handle_check_big_ui
-        )
+        self.ui.check_big_ui.clicked.connect(self.handle_check_big_ui)
         self.ui.check_big_ui.setChecked(big_ui)
 
         self.ui.check_download_playlist.clicked.connect(
@@ -285,6 +297,7 @@ class App(QMainWindow):
             self.log(
                 f"Заданы параметры: download_playlist = {download_playlist}, urls = {urls}, download_directory = {download_directory}, video_size = {video_size}, download_playlist = {download_playlist}, download_only_music = {download_only_music}"
             )
+            write_history(urls)
             ydl_opts = {
                 "logger": logger,
                 "progress_hooks": [yt_dlp_hook],

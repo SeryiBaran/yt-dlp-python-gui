@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 
 *.ini
+yt-dlp-python-gui__URL_HISTORY.txt

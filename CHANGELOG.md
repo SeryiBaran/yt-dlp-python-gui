@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog],
 and this project adheres to [Semantic Versioning] and [Conventional Commits].
 
+## [1.2.1] - 2025-02-14
+
+### Changed
+
+- Bump yt-dlp from `2024.12.13` to `2025.1.26`
+
+### Added
+
+- Add urls saving to ./yt-dlp-python-gui__URL_HISTORY.txt
+
 ## [1.2.0] - 2024-12-25
 
 ### Fixed
