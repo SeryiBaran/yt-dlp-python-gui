@@ -11,7 +11,7 @@ GUI для yt-dlp на Python + PySide6.
 
 ## Скачать (Windows)
 
-- [Скачать](https://github.com/SeryiBaran/yt-dlp-python-gui/releases/latest/download/yt-dlp-python-gui__1.2.0__2024.12.13.exe)
+- [Скачать](https://github.com/SeryiBaran/yt-dlp-python-gui/releases/latest/download/yt-dlp-python-gui__1.2.1__2025.1.26.exe)
 
 ## Сборка (PowerShell)
 
