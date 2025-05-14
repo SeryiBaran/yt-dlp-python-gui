@@ -93,6 +93,8 @@ def write_history(urls):
 write_config()
 
 
+# TODO: make cancel button
+
 class MyLogger(QtCore.QObject):
     messageSignal = QtCore.Signal(str)
 
