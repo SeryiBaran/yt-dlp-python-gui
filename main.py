@@ -101,12 +101,12 @@ def write_history():
     with open("ytpdown__URL_HISTORY.txt", "a", encoding="utf-8") as historyfile:
         historyfile.write(f"""
 
-;;;START
-# REGIONAL TIME {datetime.datetime.now().isoformat()}
-# PARAMS {json.dumps(get_params_json())}
-# Дата: {datetime.datetime.now()};
-# Качество: {video_size};
-# Плейлист: {'да' if download_playlist else 'нет'};
+;;;START {VERSION}
+#DATE {datetime.datetime.now().isoformat()}
+#PARAMS {json.dumps(get_params_json())}
+#Дата: {datetime.datetime.now()};
+#Качество: {video_size};
+#Плейлист: {'да' if download_playlist else 'нет'};
 URLS:
 
 {"\n".join(urls).strip()}
