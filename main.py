@@ -392,7 +392,7 @@ class App(QMainWindow):
 
             self.thread = YoutubeDownload(urls, ydl_opts)
             self.thread.messageSignal.connect(self.handle_download_state_changed)
-            # self.thread.finishedSignal.connect(self.thread.deleteLater)
+            self.thread.finishedSignal.connect(self.thread.deleteLater)
             def err(e):
                 errors.append(e)
                 self.log(e)
