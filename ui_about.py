@@ -24,7 +24,7 @@ class Ui_AboutWindow(object):
     def setupUi(self, AboutWindow):
         if not AboutWindow.objectName():
             AboutWindow.setObjectName(u"AboutWindow")
-        AboutWindow.resize(400, 282)
+        AboutWindow.resize(400, 314)
         icon = QIcon()
         icon.addFile(u":/icons/icon.ico", QSize(), QIcon.Mode.Normal, QIcon.State.On)
         AboutWindow.setWindowIcon(icon)
@@ -107,6 +107,7 @@ class Ui_AboutWindow(object):
 "\u0412\u0435\u0440\u0441\u0438\u044f yt-dlp - {YT_DLP_VERSION}", None))
         self.label_4.setText(QCoreApplication.translate("AboutWindow", u"<html><head/><body><p>\u0420\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0447\u0438\u043a - SeryiBaran (<a href=\"https://seryibaran.github.io\"><span>seryibaran.github.io</span></a>)</p></body></html>", None))
         self.label_2.setText(QCoreApplication.translate("AboutWindow", u"\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430 FFmpeg", None))
-        self.label_5.setText(QCoreApplication.translate("AboutWindow", u"<html><head/><body><p>\u0414\u043b\u044f \u0441\u043a\u0430\u0447\u0438\u0432\u0430\u043d\u0438\u044f \u0432\u0438\u0434\u0435\u043e \u043d\u0443\u0436\u0435\u043d FFmpeg. \u0415\u0433\u043e \u043d\u0443\u0436\u043d\u043e \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u0447\u0435\u0440\u0435\u0437 Scoop (<a href=\"https://scoop.sh\"><span>scoop.sh</span></a>), \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u043c\u043e\u0435\u0433\u043e \u043f\u043e\u043b\u0443\u0440\u0430\u0431\u043e\u0447\u0435\u0433\u043e \u043a\u0430\u043b\u043e\u0432\u043e\u0433\u043e \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u0449\u0438\u043a\u0430 (<a href=\"https://github.com/SeryiBaran/ffmpeg_installer\"><span>github.com/SeryiBaran/ffmpeg_installer</span></a>) \u0438\u043b\u0438 \u043f\u043e \u0438\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u044f\u043c \u0432 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442\u0435.</p></body></html>", None))
+        self.label_5.setText(QCoreApplication.translate("AboutWindow", u"<html><head/><body><p>\u0414\u043b\u044f \u0441\u043a\u0430\u0447\u0438\u0432\u0430\u043d\u0438\u044f \u0432\u0438\u0434\u0435\u043e \u043d\u0443\u0436\u0435\u043d FFmpeg. \u0415\u0433\u043e \u043d\u0443\u0436\u043d\u043e \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u0447\u0435\u0440\u0435\u0437 Scoop (<a href=\"https://scoop.sh\"><span style=\" text-decoration: underline; color:#262524;\">scoop.sh</span></a>), \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e \u043c\u043e\u0435\u0433\u043e \u043f\u043e\u043b\u0443\u0440\u0430\u0431\u043e\u0447\u0435\u0433\u043e \u043a\u0430\u043b\u043e\u0432\u043e\u0433\u043e \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u0449\u0438\u043a\u0430 (<a href=\"https://github.com/SeryiBaran/ffmpeg_installer\"><span style=\" text-decoration: underline; color:#262524;\">github.com/SeryiBaran/ffmpeg_installer</span></a>) \u0438\u043b\u0438 \u043f\u043e \u0438\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u044f\u043c \u0432 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442"
+                        "\u0435.</p><p>\u0415\u0441\u043b\u0438 \u043d\u0435 \u0443\u0434\u0430\u043b\u044f\u044e\u0442\u0441\u044f .part, \u0437\u0430\u043a\u0440\u043e\u0439\u0442\u0435 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0443 \u0438 \u043f\u043e\u043f\u0440\u043e\u0431\u0443\u0439\u0442\u0435 \u0441\u043d\u043e\u0432\u0430.</p></body></html>", None))
     # retranslateUi
 
