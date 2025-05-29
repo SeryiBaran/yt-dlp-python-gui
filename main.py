@@ -60,8 +60,7 @@ def set_parameter(parameter_name, value):
     ini_config.set("settings", parameter_name, value)
 
 
-print(userfolders.get_downloads())
-
+download_finished = True
 errors = []
 
 urls = []
@@ -97,7 +96,7 @@ def write_config():
         ini_config.write(configfile)
 
 
-def write_history(urls):
+def write_history():
     with open("yt-dlp-python-gui__URL_HISTORY.txt", "a") as historyfile:
         historyfile.write(
             "\nSTART " + datetime.datetime.now().isoformat() + " IN REGIONAL TIME;\n"
@@ -153,6 +152,7 @@ class YoutubeDownload(QtCore.QThread):
         self._is_running = False
         global download_finished
         download_finished = True
+        self.messageSignal.emit("ENDED")
         self.terminate()
         self.quit()
 
@@ -313,12 +313,26 @@ class App(QMainWindow):
         write_config()
 
     def handle_download_state_changed(self, msg):
+        global download_finished
         if msg == "STARTED":
-            self.ui.pushButton_download.setDisabled(True)
+            download_finished = False
+
+            self.ui.pushButton_download.setDisabled(not download_finished)
             self.ui.pushButton_download.setText("Идет скачивание...")
             self.log("[INFO] Началось скачивание")
         elif msg == "ENDED":
-            self.ui.pushButton_download.setDisabled(False)
+            file_list = os.listdir(download_directory)
+
+            for file in file_list:
+                if file.endswith(".part"):
+                    try:
+                        os.remove(os.path.join(download_directory, file))
+                    except:
+                        pass
+
+            download_finished = True
+
+            self.ui.pushButton_download.setDisabled(not download_finished)
             self.ui.pushButton_download.setText("Скачать")
             self.log("[INFO] Скачивание завершено")
             if len(errors) > 0:
@@ -335,7 +349,7 @@ class App(QMainWindow):
             logger = MyLogger()
             logger.messageSignal.connect(self.ui.plainTextEdit_logs.appendPlainText)
             self.log(f"Заданы параметры: {json.dumps(get_params_json())}")
-            write_history(urls)
+            write_history()
             ydl_opts = {
                 "logger": logger,
                 "progress_hooks": [yt_dlp_hook],
