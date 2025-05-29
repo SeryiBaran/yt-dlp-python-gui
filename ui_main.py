@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'main.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.1
+## Created by: Qt User Interface Compiler version 6.9.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
         MainWindow.setEnabled(True)
         MainWindow.resize(480, 720)
         icon = QIcon()
-        icon.addFile(u":/icons/icon.ico", QSize(), QIcon.Normal, QIcon.On)
+        icon.addFile(u":/icons/icon.ico", QSize(), QIcon.Mode.Normal, QIcon.State.On)
         MainWindow.setWindowIcon(icon)
         MainWindow.setLocale(QLocale(QLocale.Russian, QLocale.Russia))
         self.centralwidget = QWidget(MainWindow)
@@ -66,7 +66,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_4.addWidget(self.check_big_ui)
 
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_4.addItem(self.horizontalSpacer)
 
@@ -75,8 +75,8 @@ class Ui_MainWindow(object):
 
         self.line_18 = QFrame(self.scrollAreaWidgetContents)
         self.line_18.setObjectName(u"line_18")
-        self.line_18.setFrameShape(QFrame.HLine)
-        self.line_18.setFrameShadow(QFrame.Sunken)
+        self.line_18.setFrameShape(QFrame.Shape.HLine)
+        self.line_18.setFrameShadow(QFrame.Shadow.Sunken)
 
         self.verticalLayout_3.addWidget(self.line_18)
 
@@ -93,7 +93,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_5.addWidget(self.button_paste_from_clipboard)
 
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_5.addItem(self.horizontalSpacer_2)
 
@@ -102,7 +102,7 @@ class Ui_MainWindow(object):
 
         self.plainTextEdit_urls = QPlainTextEdit(self.scrollAreaWidgetContents)
         self.plainTextEdit_urls.setObjectName(u"plainTextEdit_urls")
-        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.plainTextEdit_urls.sizePolicy().hasHeightForWidth())
@@ -113,8 +113,8 @@ class Ui_MainWindow(object):
 
         self.line_16 = QFrame(self.scrollAreaWidgetContents)
         self.line_16.setObjectName(u"line_16")
-        self.line_16.setFrameShape(QFrame.HLine)
-        self.line_16.setFrameShadow(QFrame.Sunken)
+        self.line_16.setFrameShape(QFrame.Shape.HLine)
+        self.line_16.setFrameShadow(QFrame.Shadow.Sunken)
 
         self.verticalLayout_3.addWidget(self.line_16)
 
@@ -130,7 +130,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.button_download_directory)
 
-        self.horizontalSpacer_8 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_8 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer_8)
 
@@ -145,8 +145,8 @@ class Ui_MainWindow(object):
 
         self.line_14 = QFrame(self.scrollAreaWidgetContents)
         self.line_14.setObjectName(u"line_14")
-        self.line_14.setFrameShape(QFrame.HLine)
-        self.line_14.setFrameShadow(QFrame.Sunken)
+        self.line_14.setFrameShape(QFrame.Shape.HLine)
+        self.line_14.setFrameShadow(QFrame.Shadow.Sunken)
 
         self.verticalLayout_3.addWidget(self.line_14)
 
@@ -163,7 +163,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.comboBox_video_size)
 
-        self.horizontalSpacer_1 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_1 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout.addItem(self.horizontalSpacer_1)
 
@@ -181,8 +181,8 @@ class Ui_MainWindow(object):
 
         self.line_13 = QFrame(self.scrollAreaWidgetContents)
         self.line_13.setObjectName(u"line_13")
-        self.line_13.setFrameShape(QFrame.HLine)
-        self.line_13.setFrameShadow(QFrame.Sunken)
+        self.line_13.setFrameShape(QFrame.Shape.HLine)
+        self.line_13.setFrameShadow(QFrame.Shadow.Sunken)
 
         self.verticalLayout_3.addWidget(self.line_13)
 
@@ -198,8 +198,8 @@ class Ui_MainWindow(object):
 
         self.line_15 = QFrame(self.scrollAreaWidgetContents)
         self.line_15.setObjectName(u"line_15")
-        self.line_15.setFrameShape(QFrame.HLine)
-        self.line_15.setFrameShadow(QFrame.Sunken)
+        self.line_15.setFrameShape(QFrame.Shape.HLine)
+        self.line_15.setFrameShadow(QFrame.Shadow.Sunken)
 
         self.verticalLayout_3.addWidget(self.line_15)
 
@@ -210,8 +210,8 @@ class Ui_MainWindow(object):
 
         self.line_17 = QFrame(self.scrollAreaWidgetContents)
         self.line_17.setObjectName(u"line_17")
-        self.line_17.setFrameShape(QFrame.HLine)
-        self.line_17.setFrameShadow(QFrame.Sunken)
+        self.line_17.setFrameShape(QFrame.Shape.HLine)
+        self.line_17.setFrameShadow(QFrame.Shadow.Sunken)
 
         self.verticalLayout_3.addWidget(self.line_17)
 

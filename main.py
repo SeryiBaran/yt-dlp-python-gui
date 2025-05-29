@@ -1,7 +1,7 @@
 import datetime
 import sys
 import os
-from win32com.shell import shell, shellcon
+import userfolders
 import yt_dlp
 import configparser
 import json
@@ -39,7 +39,7 @@ ini_config = configparser.ConfigParser()
 try:
     ini_config.read("yt-dlp-python-gui.ini")
 except:
-    print("INFO: cannot read yt-dlp-python-gui.ini")
+    print("[INFO]: cannot read yt-dlp-python-gui.ini")
 
 
 def get_parameter(parameter_name):
@@ -54,16 +54,26 @@ def set_parameter(parameter_name, value):
     ini_config.set("settings", parameter_name, value)
 
 
+print(userfolders.get_downloads())
+
+errors = []
+
 urls = []
-download_directory = get_parameter("download_directory") or shell.SHGetKnownFolderPath(
-    shellcon.FOLDERID_Downloads
-)
+download_directory = get_parameter("download_directory") or userfolders.get_downloads()
 video_sizes = ("360", "480", "720", "1080")
 video_size = get_parameter("video_size") or "360"
 big_ui = (False) if (get_parameter("big_ui") == "False") else (True)
 download_playlist = get_parameter("download_playlist") == "True" or False
 download_only_music = get_parameter("download_only_music") == "True" or False
 
+def get_params_json():
+    return {
+        'download_directory': download_directory,
+        'video_size': video_size,
+        'big_ui': big_ui,
+        'download_playlist': download_playlist,
+        'download_only_music': download_only_music,
+    }
 
 def write_config():
     if not ini_config.has_section("settings"):
@@ -82,11 +92,14 @@ def write_config():
 def write_history(urls):
     with open("yt-dlp-python-gui__URL_HISTORY.txt", "a") as historyfile:
         historyfile.write(
-            "\nSTART " + datetime.datetime.now().isoformat() + " IN REGIONAL TIME\n"
+            "\nSTART " + datetime.datetime.now().isoformat() + " IN REGIONAL TIME;\n"
         )
-        historyfile.write("\n".join(urls) + "\n")
         historyfile.write(
-            "\nEND\n"
+            "\nPARAMS " + json.dumps(get_params_json()) + ";\n"
+        )
+        historyfile.write("\nURLS:::\n" + "\n".join(urls).strip() + "\n")
+        historyfile.write(
+            "\nEND;\n"
         )
 
 
@@ -109,6 +122,7 @@ class MyLogger(QtCore.QObject):
 
     def error(self, msg):
         self.messageSignal.emit(msg)
+        errors.append(msg)
 
 
 class YoutubeDownload(QtCore.QThread):
@@ -289,15 +303,21 @@ class App(QMainWindow):
             self.ui.pushButton_download.setDisabled(False)
             self.ui.pushButton_download.setText("Скачать")
             self.log("[INFO] Скачивание завершено")
+            if (len(errors) > 0):
+                self.log(f"[ERROR] Во время скачивания произошли следующие ошибки:")
+                self.log("\n".join(errors))
+                self.log(f"[ERROR] ВО ВРЕМЯ СКАЧИВАНИЯ ПРОИЗОШЛИ ОШИБКИ!")
 
     def handle_submit(self):
         if len(urls) == 0:
-            self.log("ВВЕДИТЕ АДРЕС!")
+            self.log("ВВЕДИТЕ АДРЕС(А)!")
         else:
+            global errors
+            errors = []
             logger = MyLogger()
             logger.messageSignal.connect(self.ui.plainTextEdit_logs.appendPlainText)
             self.log(
-                f"Заданы параметры: download_playlist = {download_playlist}, urls = {urls}, download_directory = {download_directory}, video_size = {video_size}, download_playlist = {download_playlist}, download_only_music = {download_only_music}"
+                f"Заданы параметры: {json.dumps(get_params_json())}"
             )
             write_history(urls)
             ydl_opts = {

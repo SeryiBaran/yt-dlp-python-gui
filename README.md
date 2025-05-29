@@ -11,14 +11,12 @@ GUI для yt-dlp на Python + PySide6.
 
 ## Скачать (Windows)
 
-- [Скачать](https://github.com/SeryiBaran/yt-dlp-python-gui/releases/latest/download/yt-dlp-python-gui__1.2.1__2025.1.26.exe)
+- [Скачать](https://github.com/SeryiBaran/yt-dlp-python-gui/releases/latest/download/yt-dlp-python-gui__1.2.4__2025.5.22.exe)
 
-## Сборка (PowerShell)
+## Сборка (PowerShell+UV)
 
 ```powershell
-python -m venv .venv
-.venv/Scripts/Activate.ps1
-pip install -r requirements.txt
+uv sync
 
 pyside6-uic .\ui\main.ui -o .\ui_main.py && pyside6-uic .\ui\about.ui -o .\ui_about.py
 $versions = Get-Content .\versions.json -Raw | ConvertFrom-Json
@@ -28,7 +26,7 @@ pyinstaller --clean -n "yt-dlp-python-gui__$($versions.app)__$($versions.yt_dlp)
 
 ## Разработка
 
-- Чтобы изменить версию, надо отредактировать её в `versions.json`
+- Чтобы изменить версию, надо отредактировать её в `versions.json`, `pyproject.toml` и здесь в `README.md`
 
 ## Linux
 

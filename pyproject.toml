@@ -1,0 +1,15 @@
+[project]
+name = "yt-dlp-python-gui"
+version = "1.2.3"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pyinstaller>=6.13.0",
+    "pyqtdarktheme>=2.1.0",
+    "pyside6>=6.9.0",
+    "pyside6-addons>=6.9.0",
+    "pyside6-essentials>=6.9.0",
+    "userfolders>=0.2.0",
+    "yt-dlp>=2025.5.22",
+]

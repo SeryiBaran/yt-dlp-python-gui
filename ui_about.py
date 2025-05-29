@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'about.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.1
+## Created by: Qt User Interface Compiler version 6.9.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -26,7 +26,7 @@ class Ui_AboutWindow(object):
             AboutWindow.setObjectName(u"AboutWindow")
         AboutWindow.resize(400, 280)
         icon = QIcon()
-        icon.addFile(u":/icons/icon.ico", QSize(), QIcon.Normal, QIcon.On)
+        icon.addFile(u":/icons/icon.ico", QSize(), QIcon.Mode.Normal, QIcon.State.On)
         AboutWindow.setWindowIcon(icon)
         AboutWindow.setLocale(QLocale(QLocale.Russian, QLocale.Russia))
         self.horizontalLayout = QHBoxLayout(AboutWindow)
@@ -35,7 +35,7 @@ class Ui_AboutWindow(object):
         self.widget = QWidget(AboutWindow)
         self.widget.setObjectName(u"widget")
         self.widget.setEnabled(True)
-        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.widget.sizePolicy().hasHeightForWidth())
@@ -79,7 +79,7 @@ class Ui_AboutWindow(object):
 
         self.verticalLayout_2.addWidget(self.label_5)
 
-        self.verticalSpacer = QSpacerItem(20, 5, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer = QSpacerItem(20, 5, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout_2.addItem(self.verticalSpacer)
 
