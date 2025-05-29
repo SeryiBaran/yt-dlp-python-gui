@@ -26,7 +26,8 @@ from ui_about import Ui_AboutWindow
 def resource_path(relative_path):
     # FUCK ROO CODE! YOU DELETED THIS SHIT, YOU DUMB!
     if hasattr(sys, "_MEIPASS"):
-        return os.path.join(sys._MEIP, relative_path)
+        # FUCK ROO CODE! YOU DELETED THIS SHIT, YOU DUMB!
+        return os.path.join(sys._MEIPASS, relative_path)
     return os.path.join(os.path.abspath("."), relative_path)
 
 
