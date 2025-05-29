@@ -8,7 +8,13 @@ import json
 
 from PySide6 import QtCore, QtGui
 
-from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QDialog
+from PySide6.QtWidgets import (
+    QApplication,
+    QMainWindow,
+    QFileDialog,
+    QDialog,
+    QPushButton,
+)
 from PySide6.QtCore import QRect, QSize
 from PySide6.QtGui import QFont
 from PySide6.QtWidgets import QApplication, QMainWindow
@@ -19,8 +25,8 @@ from ui_about import Ui_AboutWindow
 
 
 def resource_path(relative_path):
-    if hasattr(sys, "_MEIPASS"):
-        return os.path.join(sys._MEIPASS, relative_path)
+    if hasattr(sys, "_MEIP"):
+        return os.path.join(sys._MEIP, relative_path)
     return os.path.join(os.path.abspath("."), relative_path)
 
 
@@ -66,14 +72,16 @@ big_ui = (False) if (get_parameter("big_ui") == "False") else (True)
 download_playlist = get_parameter("download_playlist") == "True" or False
 download_only_music = get_parameter("download_only_music") == "True" or False
 
+
 def get_params_json():
     return {
-        'download_directory': download_directory,
-        'video_size': video_size,
-        'big_ui': big_ui,
-        'download_playlist': download_playlist,
-        'download_only_music': download_only_music,
+        "download_directory": download_directory,
+        "video_size": video_size,
+        "big_ui": big_ui,
+        "download_playlist": download_playlist,
+        "download_only_music": download_only_music,
     }
+
 
 def write_config():
     if not ini_config.has_section("settings"):
@@ -94,19 +102,13 @@ def write_history(urls):
         historyfile.write(
             "\nSTART " + datetime.datetime.now().isoformat() + " IN REGIONAL TIME;\n"
         )
-        historyfile.write(
-            "\nPARAMS " + json.dumps(get_params_json()) + ";\n"
-        )
+        historyfile.write("\nPARAMS " + json.dumps(get_params_json()) + ";\n")
         historyfile.write("\nURLS:::\n" + "\n".join(urls).strip() + "\n")
-        historyfile.write(
-            "\nEND;\n"
-        )
+        historyfile.write("\nEND;\n")
 
 
 write_config()
 
-
-# TODO: make cancel button
 
 class MyLogger(QtCore.QObject):
     messageSignal = QtCore.Signal(str)
@@ -127,24 +129,32 @@ class MyLogger(QtCore.QObject):
 
 class YoutubeDownload(QtCore.QThread):
     messageSignal = QtCore.Signal(str)
+    finishedSignal = QtCore.Signal()
+    errorSignal = QtCore.Signal(str)
 
-    def __init__(
-        self,
-        urls,
-        ydl_opts,
-        *args,
-        **kwargs,
-    ):
-        QtCore.QThread.__init__(self, *args, **kwargs)
+    def __init__(self, urls, ydl_opts, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.urls = urls
         self.ydl_opts = ydl_opts
+        self._is_running = True
 
     def run(self):
         self.messageSignal.emit("STARTED")
-        with yt_dlp.YoutubeDL(self.ydl_opts) as ydl:
-            ydl.download(self.urls)
+        try:
+            with yt_dlp.YoutubeDL(self.ydl_opts) as ydl:
+                ydl.download(self.urls)
+                if self._is_running:
+                    self.messageSignal.emit("ENDED")
+        except Exception as e:
+            self.errorSignal.emit(str(e))
+        self.finishedSignal.emit()
 
-            self.messageSignal.emit("ENDED")
+    def my_stop(self):
+        self._is_running = False
+        global download_finished
+        download_finished = True
+        self.terminate()
+        self.quit()
 
 
 def yt_dlp_hook(d):
@@ -232,6 +242,14 @@ class App(QMainWindow):
         self.ui.check_download_only_music.setChecked(download_only_music)
 
         self.ui.pushButton_download.clicked.connect(self.handle_submit)
+        self.ui.pushButton_cancel.clicked.connect(self.cancel_download)
+
+    def cancel_download(self):
+        if hasattr(self, "thread"):
+            self.thread.my_stop()
+            self.log("[INFO] ЗАГРУЗКА ПРЕРВАНА ПОЛЬЗОВАТЕЛЕМ")
+            self.ui.pushButton_download.setDisabled(False)
+            self.ui.pushButton_download.setText("Скачать")
 
     def log(self, message):
         self.ui.plainTextEdit_logs.appendPlainText(str(message))
@@ -303,7 +321,7 @@ class App(QMainWindow):
             self.ui.pushButton_download.setDisabled(False)
             self.ui.pushButton_download.setText("Скачать")
             self.log("[INFO] Скачивание завершено")
-            if (len(errors) > 0):
+            if len(errors) > 0:
                 self.log(f"[ERROR] Во время скачивания произошли следующие ошибки:")
                 self.log("\n".join(errors))
                 self.log(f"[ERROR] ВО ВРЕМЯ СКАЧИВАНИЯ ПРОИЗОШЛИ ОШИБКИ!")
@@ -316,9 +334,7 @@ class App(QMainWindow):
             errors = []
             logger = MyLogger()
             logger.messageSignal.connect(self.ui.plainTextEdit_logs.appendPlainText)
-            self.log(
-                f"Заданы параметры: {json.dumps(get_params_json())}"
-            )
+            self.log(f"Заданы параметры: {json.dumps(get_params_json())}")
             write_history(urls)
             ydl_opts = {
                 "logger": logger,
@@ -361,8 +377,13 @@ class App(QMainWindow):
                 )
 
             self.thread = YoutubeDownload(urls, ydl_opts)
-            self.thread.start()
             self.thread.messageSignal.connect(self.handle_download_state_changed)
+            # self.thread.finishedSignal.connect(self.thread.deleteLater)
+            def err(e):
+                errors.append(e)
+                self.log(e)
+            self.thread.errorSignal.connect(err)
+            self.thread.start()
 
 
 if __name__ == "__main__":
