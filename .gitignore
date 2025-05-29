@@ -161,3 +161,4 @@ cython_debug/
 
 *.ini
 yt-dlp-python-gui__URL_HISTORY.txt
+ytpdown__URL_HISTORY.txt

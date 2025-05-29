@@ -102,7 +102,7 @@ class Ui_AboutWindow(object):
     def retranslateUi(self, AboutWindow):
         AboutWindow.setWindowTitle(QCoreApplication.translate("AboutWindow", u"\u041e \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0435", None))
         self.label.setText(QCoreApplication.translate("AboutWindow", u"\u041e \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0435", None))
-        self.label_3.setText(QCoreApplication.translate("AboutWindow", u"<html><head/><body><p>\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u044b - yt-dlp-python-gui. (<a href=\"https://github.com/SeryiBaran/yt-dlp-python-gui\"><span>GitHub</span></a>)</p></body></html>", None))
+        self.label_3.setText(QCoreApplication.translate("AboutWindow", u"<html><head/><body><p>\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u044b - YTPDown (yt-dlp-python-gui). (<a href=\"https://github.com/SeryiBaran/yt-dlp-python-gui\"><span>GitHub</span></a>)</p></body></html>", None))
         self.versionsLabel.setText(QCoreApplication.translate("AboutWindow", u"\u0412\u0435\u0440\u0441\u0438\u044f \u044d\u0442\u043e\u0439 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u044b - {VERSION}\n"
 "\u0412\u0435\u0440\u0441\u0438\u044f yt-dlp - {YT_DLP_VERSION}", None))
         self.label_4.setText(QCoreApplication.translate("AboutWindow", u"<html><head/><body><p>\u0420\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0447\u0438\u043a - SeryiBaran (<a href=\"https://seryibaran.github.io\"><span>seryibaran.github.io</span></a>)</p></body></html>", None))

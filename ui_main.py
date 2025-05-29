@@ -253,8 +253,8 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"\u0421\u043a\u0430\u0447\u0438\u0432\u0430\u043b\u043a\u0430 \u0441 YouTube (\u0438\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441 \u0434\u043b\u044f yt-dlp)", None))
-        self.label_13.setText(QCoreApplication.translate("MainWindow", u"\u041a\u0430\u0447\u0430\u043b\u043a\u0430 YouTube", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"YTPDown (\u0421\u043a\u0430\u0447\u0438\u0432\u0430\u043b\u043a\u0430 \u0432\u0438\u0434\u0435\u043e)", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"\u041a\u0430\u0447\u0430\u043b\u043a\u0430 \u0412\u0438\u0434\u0435\u043e", None))
         self.aboutButton.setText(QCoreApplication.translate("MainWindow", u"\u0418\u041d\u0424\u041e", None))
         self.check_big_ui.setText(QCoreApplication.translate("MainWindow", u"BIG (\u0442\u0440\u0435\u0431\u0443\u0435\u0442 \u043f\u0435\u0440\u0435\u0437\u0430\u043f\u0443\u0441\u043a\u0430)", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>\u0410\u0434\u0440\u0435\u0441 \u0432\u0438\u0434\u0435\u043e/\u043f\u043b\u0435\u0439\u043b\u0438\u0441\u0442\u0430 (\u043c\u043e\u0436\u043d\u043e \u0438 \u043a\u0443\u0447\u0443 \u0441\u0441\u044b\u043b\u043e\u043a, \u043a\u0430\u0436\u0434\u0443\u044e \u043d\u0430 \u043d\u043e\u0432\u043e\u0439 \u0441\u0442\u0440\u043e\u043a\u0435):</p></body></html>", None))

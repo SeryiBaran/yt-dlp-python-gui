@@ -43,9 +43,9 @@ VERSION_LABEL_VALUE = f"""Версия этой программы - {VERSION}
 
 ini_config = configparser.ConfigParser()
 try:
-    ini_config.read("yt-dlp-python-gui.ini")
+    ini_config.read("ytpdown.ini")
 except:
-    print("[INFO]: cannot read yt-dlp-python-gui.ini")
+    print("[INFO]: cannot read ytpdown.ini")
 
 
 def get_parameter(parameter_name):
@@ -65,7 +65,7 @@ errors = []
 
 urls = []
 download_directory = get_parameter("download_directory") or userfolders.get_downloads()
-video_sizes = ("360", "480", "720", "1080")
+video_sizes = ("144", "240", "360", "480", "720", "1080")
 video_size = get_parameter("video_size") or "360"
 big_ui = (False) if (get_parameter("big_ui") == "False") else (True)
 download_playlist = get_parameter("download_playlist") == "True" or False
@@ -92,12 +92,12 @@ def write_config():
     set_parameter("download_playlist", str(download_playlist))
     set_parameter("download_only_music", str(download_only_music))
 
-    with open("yt-dlp-python-gui.ini", "w") as configfile:
+    with open("ytpdown.ini", "w") as configfile:
         ini_config.write(configfile)
 
 
 def write_history():
-    with open("yt-dlp-python-gui__URL_HISTORY.txt", "a") as historyfile:
+    with open("ytpdown__URL_HISTORY.txt", "a") as historyfile:
         historyfile.write(
             "\nSTART " + datetime.datetime.now().isoformat() + " IN REGIONAL TIME;\n"
         )
@@ -246,7 +246,8 @@ class App(QMainWindow):
 
     def cancel_download(self):
         if hasattr(self, "thread"):
-            self.thread.my_stop()
+            if hasattr(self.thread, 'my_stop'):
+                self.thread.my_stop()
             self.log("[INFO] ЗАГРУЗКА ПРЕРВАНА ПОЛЬЗОВАТЕЛЕМ")
             self.ui.pushButton_download.setDisabled(False)
             self.ui.pushButton_download.setText("Скачать")

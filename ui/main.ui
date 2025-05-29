@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Скачивалка с YouTube (интерфейс для yt-dlp)</string>
+   <string>YTPDown (Скачивалка видео)</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -72,7 +72,7 @@
              </font>
             </property>
             <property name="text">
-             <string>Качалка YouTube</string>
+             <string>Качалка Видео</string>
             </property>
            </widget>
           </item>
