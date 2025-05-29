@@ -19,7 +19,11 @@ GUI для yt-dlp на Python + PySide6.
 
 - [Скачать](https://github.com/SeryiBaran/yt-dlp-python-gui/releases/latest/download/ytpdown__1.3.1__2025.5.22.exe)
 
-## Сборка (PowerShell+UV)
+## Разработка
+
+- Чтобы изменить версию, надо отредактировать её в `versions.json`, `pyproject.toml` и здесь в `README.md`
+
+### Сборка (PowerShell+UV)
 
 ```powershell
 uv sync
@@ -29,10 +33,6 @@ $versions = Get-Content .\versions.json -Raw | ConvertFrom-Json
 
 pyinstaller --clean -n "ytpdown__$($versions.app)__$($versions.yt_dlp)" -w -y -F -i="ui\icon.ico" --add-data="ui\icon.ico:ui" --add-data="versions.json:." .\main.py
 ```
-
-## Разработка
-
-- Чтобы изменить версию, надо отредактировать её в `versions.json`, `pyproject.toml` и здесь в `README.md`
 
 ## Linux
 
