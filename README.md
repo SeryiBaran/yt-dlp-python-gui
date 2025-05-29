@@ -4,6 +4,12 @@
 
 GUI для yt-dlp на Python + PySide6.
 
+Файлик с историей загрузок, как и настройки, будут сохраняться в папке с программой.
+
+Файлик с историей, при загрузке 20 видео в день на протяжении 1 года, будет весить 0.5MiB:
+
+![qalculate](readme_images/urls_file_size.jpg)
+
 ## Внимание!
 
 1. Ни в коем случае не используйте данное приложение в корыстных целях. Автор не несёт никакой ответственности за ваши действия!
@@ -11,7 +17,7 @@ GUI для yt-dlp на Python + PySide6.
 
 ## Скачать (Windows)
 
-- [Скачать](https://github.com/SeryiBaran/yt-dlp-python-gui/releases/latest/download/ytpdown__1.3.0__2025.5.22.exe)
+- [Скачать](https://github.com/SeryiBaran/yt-dlp-python-gui/releases/latest/download/ytpdown__1.3.1__2025.5.22.exe)
 
 ## Сборка (PowerShell+UV)
 

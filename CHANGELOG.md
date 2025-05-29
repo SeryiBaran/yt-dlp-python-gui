@@ -5,6 +5,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog],
 and this project adheres to [Semantic Versioning] and [Conventional Commits].
 
+## [1.3.1] - 2025-05-29
+
+### Fixed
+
+- Fix links color in About window
+
+### Changed
+
+- Cool urls log
+
+## [1.3.0] - 2025-05-29
+
+### Added
+
+- [UV](https://docs.astral.sh/uv/) as package manager
+- Experimental cancel button
+- Errors list
+
+### Changed
+
+- Improve ui
+
+## [1.2.2] - 2025-05-29
+
+### Changed
+
+- Bump yt-dlp from `2025.1.26` to `2025.4.30`
+
 ## [1.2.1] - 2025-02-14
 
 ### Changed

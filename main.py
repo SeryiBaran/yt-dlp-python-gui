@@ -98,14 +98,22 @@ def write_config():
 
 
 def write_history():
-    with open("ytpdown__URL_HISTORY.txt", "a") as historyfile:
-        historyfile.write(
-            "\nSTART " + datetime.datetime.now().isoformat() + " IN REGIONAL TIME;\n"
-        )
-        historyfile.write("\nPARAMS " + json.dumps(get_params_json()) + ";\n")
-        historyfile.write("\nURLS:::\n" + "\n".join(urls).strip() + "\n")
-        historyfile.write("\nEND;\n")
+    with open("ytpdown__URL_HISTORY.txt", "a", encoding="utf-8") as historyfile:
+        historyfile.write(f"""
 
+;;;START
+# REGIONAL TIME {datetime.datetime.now().isoformat()}
+# PARAMS {json.dumps(get_params_json())}
+# Дата: {datetime.datetime.now()};
+# Качество: {video_size};
+# Плейлист: {'да' if download_playlist else 'нет'};
+URLS:
+
+{"\n".join(urls).strip()}
+
+;;;END
+
+""")
 
 write_config()
 
@@ -340,7 +348,7 @@ class App(QMainWindow):
             if len(errors) > 0:
                 self.log(f"[ERROR] Во время скачивания произошли следующие ошибки:")
                 self.log("\n".join(errors))
-                self.log(f"[ERROR] ВО ВРЕМЯ СКАЧИВАНИЯ ПРОИЗОШЛИ ОШИБКИ!")
+                self.log(f"[ERROR] ВО ВРЕМЯ СКАЧИВАНИЯ ПРОИЗОШЛИ {len(errors)} ОШИБОК!")
 
     def handle_submit(self):
         if len(urls) == 0:
