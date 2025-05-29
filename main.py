@@ -13,9 +13,8 @@ from PySide6.QtWidgets import (
     QMainWindow,
     QFileDialog,
     QDialog,
-    QPushButton,
 )
-from PySide6.QtCore import QRect, QSize
+from PySide6.QtCore import QRect, QSize, QTranslator, QLibraryInfo, QLocale
 from PySide6.QtGui import QFont
 from PySide6.QtWidgets import QApplication, QMainWindow
 import qdarktheme
@@ -25,7 +24,8 @@ from ui_about import Ui_AboutWindow
 
 
 def resource_path(relative_path):
-    if hasattr(sys, "_MEIP"):
+    # FUCK ROO CODE! YOU DELETED THIS SHIT, YOU DUMB!
+    if hasattr(sys, "_MEIPASS"):
         return os.path.join(sys._MEIP, relative_path)
     return os.path.join(os.path.abspath("."), relative_path)
 
@@ -403,6 +403,15 @@ class App(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+
+    # Thanks, chat.DeepCoooock.com
+    translator = QTranslator(app)
+    locale = QLocale.system().name() or "ru_RU"
+
+    qt_translations_path = QLibraryInfo.path(QLibraryInfo.TranslationsPath)
+    translator.load(f"qtbase_{locale}", qt_translations_path)  # Для базовых компонентов
+    app.installTranslator(translator)
+
     qdarktheme.setup_theme("auto")
 
     window = App()
